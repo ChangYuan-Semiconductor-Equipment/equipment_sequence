@@ -1,0 +1,855 @@
+{
+    "lower_computer": {
+        "local_database": true,
+        "type": "snap7",
+        "snap7": {
+            "ip": "192.168.250.1",
+            "rack": 0,
+            "slot": 1
+        },
+        "modbus": {
+            "plc_ip": "127.0.0.1",
+            "port": 502
+        },
+        "mitsubishi": {
+            "plc_ip": "127.0.0.1",
+            "port": 502
+        },
+        "tag": {
+            "plc_ip": "127.0.0.1"
+        }
+    },
+    "secs_conf": {
+        "secs_ip": "127.0.0.1",
+        "secs_port": 5000,
+        "connect_mode": "PASSIVE",
+        "model_name": "CYG SECSGEM",
+        "software_version": "1.0.0"
+    },
+    "collection_events": {
+        "control_state_change": {
+            "ceid": 1001,
+            "description": "控制状态改变",
+            "link_reports": {
+                "1": [
+                    501
+                ]
+            }
+        },
+        "machine_state_change": {
+            "ceid": 1002,
+            "description": "运行状态变化",
+            "link_reports": {
+                "2": [
+                    502
+                ]
+            }
+        },
+        "new_lot": {
+            "ceid": 1003,
+            "description": "开工单事件",
+            "link_reports": {
+                "3": [
+                    503,
+                    504,
+                    505
+                ]
+            }
+        },
+        "product_in_request": {
+            "ceid": 1004,
+            "description": "产品请求进站",
+            "link_reports": {
+                "4": [
+                    503,
+                    504,
+                    602
+                ]
+            }
+        },
+        "product_in_station_left": {
+            "ceid": 1005,
+            "description": "左侧工位放入产品",
+            "link_reports": {
+                "5": [
+                    504,
+                    603,
+                    604
+                ]
+            }
+        },
+        "product_in_station_right": {
+            "ceid": 1006,
+            "description": "左侧工位放入产品",
+            "link_reports": {
+                "6": [
+                    504,
+                    605,
+                    606
+                ]
+            }
+        },
+        "label_print_request": {
+            "ceid": 1007,
+            "description": "产品请求打标签码",
+            "link_reports": {
+                "7": [
+                    504,
+                    607
+                ]
+            }
+        }
+    },
+    "status_variable": {
+        "current_control_state": {
+            "svid": 501,
+            "unit": "",
+            "value": 1,
+            "value_type": "UINT_4",
+            "description": "当前控制状态"
+        },
+        "current_machine_state": {
+            "svid": 502,
+            "unit": "",
+            "value": 1,
+            "value_type": "UINT_4",
+            "description": "当前运行状态"
+        },
+        "current_recipe_name": {
+            "svid": 503,
+            "unit": "",
+            "value": "mini1",
+            "value_type": "ASCII",
+            "description": "当前配方名称"
+        },
+        "current_lot_name": {
+            "svid": 504,
+            "unit": "",
+            "value": "25B20697",
+            "value_type": "ASCII",
+            "description": "当前工单名称"
+        },
+        "current_lot_quality": {
+            "svid": 505,
+            "unit": "",
+            "value": 1024,
+            "value_type": "UINT_4",
+            "description": "当前要生产的工单数量"
+        }
+    },
+    "data_values": {
+        "carrier_code": {
+            "dvid": 601,
+            "value_type": "ASCII",
+            "description": "上料设备托盘码"
+        },
+        "product_code_in": {
+            "dvid": 602,
+            "value_type": "ASCII",
+            "description": "进站产品码"
+        },
+        "product_code_in_station_left": {
+            "dvid": 603,
+            "value_type": "ASCII",
+            "description": "放入左侧工位产品码"
+        },
+        "product_in_station_index_left": {
+            "dvid": 604,
+            "value_type": "UINT_4",
+            "description": "产品放入左侧工位所在穴位"
+        },
+        "product_code_in_station_right": {
+            "dvid": 605,
+            "value_type": "ASCII",
+            "description": "放入右侧工位产品码"
+        },
+        "product_in_station_index_right": {
+            "dvid": 606,
+            "value_type": "UINT_4",
+            "description": "产品放入右侧工"
+        },
+        "product_code_label_print_request": {
+            "dvid": 607,
+            "value_type": "ASCII",
+            "description": "请求打标签码的产品码"
+        },
+        "product_in_state": {
+            "dvid": 608,
+            "value_type": "UINT_4",
+            "description": "产品进站请求结果"
+        },
+        "map_number": {
+            "dvid": 609,
+            "value_type": "UINT_4",
+            "description": "几配对"
+        },
+        "map_info": {
+            "dvid": 610,
+            "value_type": "ARRAY",
+            "description": "配对数据列表"
+        },
+        "label_print_state": {
+            "dvid": 611,
+            "value_type": "UINT_4",
+            "description": "是否打印标签"
+        },
+        "label_print_info": {
+            "dvid": 612,
+            "value_type": "ASCII",
+            "description": "打印的标签内容"
+        },
+        "laser_logo_type": {
+            "dvid": 613,
+            "value_type": "UINT_4",
+            "description": "激光打印logo类型"
+        },
+        "is_laser_print": {
+            "dvid": 614,
+            "value_type": "UINT_4",
+            "description": "是否要激光打标"
+        },
+        "pn": {
+            "dvid": 615,
+            "value_type": "ASCII",
+            "description": "pn"
+        },
+        "sn": {
+            "dvid": 616,
+            "value_type": "ASCII",
+            "description": "sn"
+        },
+        "ssn": {
+            "dvid": 617,
+            "value_type": "ASCII",
+            "description": "ssn"
+        },
+        "mn": {
+            "dvid": 618,
+            "value_type": "ASCII",
+            "description": "mn"
+        },
+        "pd_type": {
+            "dvid": 619,
+            "value_type": "ASCII",
+            "description": "pd_type"
+        },
+        "current_station": {
+            "dvid": 620,
+            "value_type": "ASCII",
+            "description": "当前正在做的工站"
+        },
+        "current_sun_index": {
+            "dvid": 621,
+            "value_type": "UINT_4",
+            "value": 358,
+            "description": "当前阳光码的序号"
+        },
+        "current_label_type": {
+            "dvid": 622,
+            "value_type": "ASCII",
+            "description": "当前模块标签类型"
+        },
+        "sun_uppers_str": {
+            "dvid": 623,
+            "value_type": "ASCII",
+            "description": "sun_uppers_str"
+        },
+        "sun_lowers_str": {
+            "dvid": 624,
+            "value_type": "ASCII",
+            "description": "sun_lowers_str"
+        },
+        "sun_bar_code": {
+            "dvid": 625,
+            "value_type": "ASCII",
+            "description": "sun_bar_code"
+        },
+        "bar_code_99100": {
+            "dvid": 626,
+            "value_type": "ASCII",
+            "description": "bar_code_99100"
+        },
+        "is_first_laser_request": {
+            "dvid": 627,
+            "value_type": "BOOL",
+            "description": "是否第一次调用请求激光打标接口"
+        },
+        "equipment_name": {
+            "dvid": 628,
+            "value_type": "ASCII",
+            "value": "MA02-AUTOPACKER02",
+            "description": "产品进站的时候要传的机台名称"
+        },
+        "product_in_state_database": {
+            "dvid": 629,
+            "value_type": "UINT_4",
+            "description": "保存到数据库的产品进站状态"
+        },
+        "product_type": {
+            "dvid": 630,
+            "value_type": "ASCII",
+            "value": "TG450HF17M1-S300",
+            "description": "产品类型"
+        },
+        "laser_success": {
+            "dvid": 631,
+            "value_type": "UINT_4",
+            "description": "激光是否打印成功"
+        },
+        "pre_map_group_index": {
+            "dvid": 632,
+            "value_type": "UINT_4",
+            "description": "当前配对分组index",
+            "value": 6
+        },
+        "pre_group_count": {
+            "dvid": 633,
+            "value_type": "UINT_4",
+            "description": "上一次分组总数",
+            "value": 1390
+        },
+        "product_code_laser_print_request": {
+            "dvid": 634,
+            "value_type": "ASCII",
+            "description": "请求激光打码时产品码"
+        }
+    },
+    "equipment_constant": {
+        "plc_ip": {
+            "ecid": 701,
+            "unit": "",
+            "default_value": "192.168.250.1",
+            "value_type": "ASCII",
+            "description": "plc_ip",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "plc_rack": {
+            "ecid": 702,
+            "unit": "",
+            "default_value": 0,
+            "value_type": "UINT_4",
+            "description": "plc机架号",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "plc_slot": {
+            "ecid": 703,
+            "unit": "",
+            "default_value": 1,
+            "value_type": "UINT_4",
+            "description": "plc槽号",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "db_num": {
+            "ecid": 704,
+            "unit": "",
+            "default_value": 1005,
+            "value_type": "UINT_4",
+            "description": "plc块",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "occur_alarm_code": {
+            "ecid": 705,
+            "unit": "",
+            "default_value": 2,
+            "value_type": "UINT_4",
+            "description": "发生报警代码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "clear_alarm_code": {
+            "ecid": 706,
+            "unit": "",
+            "default_value": 0,
+            "value_type": "UINT_4",
+            "description": "清除报警代码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mes_heart_gap": {
+            "ecid": 707,
+            "unit": "",
+            "default_value": 2,
+            "value_type": "UINT_4",
+            "description": "MES心跳间隔时间",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "alarm_state": {
+            "ecid": 708,
+            "unit": "",
+            "default_value": 4,
+            "value_type": "UINT_4",
+            "description": "报警状态",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_user_name": {
+            "ecid": 709,
+            "unit": "",
+            "default_value": "root",
+            "value_type": "ASCII",
+            "description": "数据库用户名",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_password": {
+            "ecid": 710,
+            "unit": "",
+            "default_value": "liuwei.520",
+            "value_type": "ASCII",
+            "description": "数据库密码",
+            "min_value": 0,
+            "max_value": 0
+        }
+    },
+    "remote_commands": {
+        "new_lot_reply": {
+            "rcmd": "new_lot_reply",
+            "params": [
+                "current_lot_name",
+                "map_number",
+                "laser_print"
+            ],
+            "description": "eap接收到new_lot事件反馈工单信息"
+        },
+        "product_in_reply": {
+            "rcmd": "product_in_reply",
+            "params": [
+                "state"
+            ],
+            "description": "eap回复产品是否可以进站"
+        },
+        "label_print_reply": {
+            "rcmd": "label_print_reply",
+            "params": [
+                "label_print_info"
+            ],
+            "description": "eap反馈的标签打标信息，如果是空字符串代表不打印"
+        }
+    },
+    "signal_address": {
+        "mes_heart": {
+            "description": "MES 心跳",
+            "address": 1000,
+            "data_type": "bool",
+            "bit_index": 0
+        },
+        "control_state": {
+            "description": "实时监控设备的控制状态",
+            "address": 4,
+            "data_type": "int"
+        },
+        "machine_state": {
+            "description": "实时监控设备的运行状态",
+            "address": 2,
+            "data_type": "int"
+        },
+        "alarm_id": {
+            "description": "出现报警时, 报警id",
+            "address": 6,
+            "data_type": "int"
+        },
+        "product_in_request": {
+            "loop": true,
+            "description": "产品请求进站",
+            "address": 164,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取产品码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 100,
+                    "data_type": "str",
+                    "size": 30,
+                    "dv_name": "product_code_in"
+                },
+                {
+                    "description": "请求产品是否可以进站",
+                    "operation_func": "product_in_request"
+                },
+                {
+                    "description": "写入进站结果",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 1100,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "product_in_state"
+                },
+                {
+                    "description": "写入产品请求进站MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1102,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据产品请求进站信号清空MES反馈信号",
+                    "premise_address": 164,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1102,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "product_in_station_left": {
+            "loop": true,
+            "description": "左侧工位放入产品",
+            "address": 200,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取产品码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 204,
+                    "data_type": "str",
+                    "size": 30,
+                    "dv_name": "product_code_in_station_left"
+                },
+                {
+                    "description": "读取产品所在穴位",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 202,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "product_in_station_index_left"
+                },
+                {
+                    "description": "左侧工位保存放入产品信息",
+                    "operation_func": "product_in_station_left"
+                },
+                {
+                    "description": "写入左侧工位放入产品MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1200,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据左侧工位放入产品信号清空MES反馈信号",
+                    "premise_address": 200,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1200,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "product_in_station_right": {
+            "loop": true,
+            "description": "右侧工位放入产品",
+            "address": 238,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取产品码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 242,
+                    "data_type": "str",
+                    "size": 30,
+                    "dv_name": "product_code_in_station_right"
+                },
+                {
+                    "description": "读取产品所在穴位",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 240,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "product_in_station_index_right"
+                },
+                {
+                    "description": "右侧工位保存放入产品信息",
+                    "operation_func": "product_in_station_right"
+                },
+                {
+                    "description": "写入右侧工位放入产品MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1614,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据右侧工位放入产品信号清空MES反馈信号",
+                    "premise_address": 238,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1614,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "map_request_station_left": {
+            "loop": true,
+            "description": "左侧工位请求配对信息",
+            "address": 236,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "将左侧数据进行分组",
+                    "operation_func": "group_products_left"
+                },
+                {
+                    "description": "写入配对数",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 1204,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "map_number"
+                },
+                {
+                    "description": "写入配对数据",
+                    "operation_func": "write_multiple_dv_value_snap7",
+                    "address": 1206,
+                    "data_type": "int",
+                    "size": 2,
+                    "count": 204,
+                    "gap": 2,
+                    "dv_name": "map_info"
+                },
+                {
+                    "description": "写入左侧工位请求配对信息MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1202,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据左侧工位请求配对信息信号清空MES反馈信号",
+                    "premise_address": 236,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1202,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "map_request_station_right": {
+            "loop": true,
+            "description": "右侧工位请求配对信息",
+            "address": 274,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "将右侧数据进行分组",
+                    "operation_func": "group_products_right"
+                },
+                {
+                    "description": "写入配对数",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 1618,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "map_number"
+                },
+                {
+                    "description": "写入配对数据",
+                    "operation_func": "write_multiple_dv_value_snap7",
+                    "address": 1620,
+                    "data_type": "int",
+                    "size": 2,
+                    "count": 204,
+                    "gap": 2,
+                    "dv_name": "map_info"
+                },
+                {
+                    "description": "写入右侧工位请求配对信息MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1616,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据右侧工位请求配对信息信号清空MES反馈信号",
+                    "premise_address": 274,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 1616,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "label_print_request": {
+            "loop": true,
+            "description": "产品请求打标签码",
+            "address": 400,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "清空是否要打激光数据",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2208,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 2
+                },
+                {
+                    "description": "读取产品码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 404,
+                    "data_type": "str",
+                    "size": 30,
+                    "dv_name": "product_code_label_print_request"
+                },
+                {
+                    "description": "请求是否打标, 如果要则进行打标",
+                    "operation_func": "label_print_request"
+                },
+                {
+                    "description": "写入打标内容",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 2102,
+                    "data_type": "str",
+                    "size": 100,
+                    "dv_name": "label_print_info"
+                },
+                {
+                    "description": "写入是否要打印标签",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 2100,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "label_print_state"
+                },
+                {
+                    "description": "请求是否激光打标",
+                    "operation_func": "laser_print_request"
+                },
+                {
+                    "description": "写入激光打码logo类型",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 2206,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "laser_logo_type"
+                },
+                {
+                    "description": "写入是否要激光打标",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 2208,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "is_laser_print"
+                },
+                {
+                    "description": "写入配对四个大字",
+                    "operation_func": "write_group_four_word_label"
+                },
+                {
+                    "description": "写入产品请求打标签码MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2204,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据产品请求打标签码信号清空MES反馈信号",
+                    "premise_address": 400,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2204,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "laser_print_request": {
+            "loop": true,
+            "description": "请求激光打印",
+            "address": 402,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取产品码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 436,
+                    "data_type": "str",
+                    "size": 30,
+                    "dv_name": "product_code_laser_print_request"
+                },
+                {
+                    "description": "写入产品型号",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 2212,
+                    "data_type": "str",
+                    "size": 50,
+                    "dv_name": "product_type"
+                },
+                {
+                    "description": "开始打标",
+                    "operation_func": "laser_print"
+                },
+                {
+                    "description": "写入请求激光打印MES反馈信号",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 2210,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "laser_success"
+                },
+                {
+                    "description": "写入配对四个大字",
+                    "operation_func": "write_group_four_word_laser"
+                },
+                {
+                    "description": "根据产品请求打标签码信号清空MES反馈信号",
+                    "premise_address": 402,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2210,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        }
+    }
+}

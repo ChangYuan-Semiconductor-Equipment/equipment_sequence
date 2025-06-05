@@ -1,0 +1,151 @@
+{
+    "lower_computer": {
+        "local_database": true,
+        "type": "snap7",
+        "snap7": {
+            "ip": "192.168.250.150",
+            "rack": 0,
+            "slot": 1
+        },
+        "modbus": {
+            "plc_ip": "127.0.0.1",
+            "port": 502
+        },
+        "mitsubishi": {
+            "plc_ip": "127.0.0.1",
+            "port": 502
+        },
+        "tag": {
+            "plc_ip": "127.0.0.1"
+        }
+    },
+    "secs_conf": {
+        "secs_ip": "127.0.0.1",
+        "secs_port": 5000,
+        "connect_mode": "PASSIVE",
+        "model_name": "CYG SECSGEM",
+        "software_version": "1.0.0"
+    },
+    "collection_events": {
+    },
+    "status_variable": {
+        "current_lot_name": {
+            "svid": 504,
+            "unit": "",
+            "value": "mini1",
+            "value_type": "ASCII",
+            "description": "当前工单名称"
+        }
+    },
+    "data_values": {
+        "labels_info_package": {
+            "dvid": 601,
+            "value_type": "ARRAY",
+            "description": "在塑料盒中的所有一次标签码"
+        }
+    },
+    "equipment_constant": {
+        "plc_ip": {
+            "ecid": 701,
+            "unit": "",
+            "default_value": "192.168.250.150",
+            "value_type": "ASCII",
+            "description": "plc_ip",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "plc_rack": {
+            "ecid": 702,
+            "unit": "",
+            "default_value": 0,
+            "value_type": "UINT_4",
+            "description": "plc机架号",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "plc_slot": {
+            "ecid": 703,
+            "unit": "",
+            "default_value": 1,
+            "value_type": "UINT_4",
+            "description": "plc槽号",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "db_num": {
+            "ecid": 704,
+            "unit": "",
+            "default_value": 1005,
+            "value_type": "UINT_4",
+            "description": "plc块",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_user_name": {
+            "ecid": 709,
+            "unit": "",
+            "default_value": "cyg",
+            "value_type": "ASCII",
+            "description": "数据库用户名",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_password": {
+            "ecid": 710,
+            "unit": "",
+            "default_value": "liuwei.520",
+            "value_type": "ASCII",
+            "description": "数据库密码",
+            "min_value": 0,
+            "max_value": 0
+        }
+    },
+    "remote_commands": {
+    },
+    "signal_address": {
+        "label_print_request": {
+            "loop": true,
+            "description": "包装盒请求打码",
+            "address": 2000,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取包装盒中每个塑料盒的码",
+                    "operation_func": "read_multiple_update_dv_snap7",
+                    "address": 2002,
+                    "data_type": "str",
+                    "size": 66,
+                    "gap": 66,
+                    "count_num": 3,
+                    "dv_name": "labels_info_package"
+                },
+                {
+                    "description": "请求打标内容",
+                    "operation_func": "label_print_request"
+                },
+                {
+                    "description": "写入包装盒请求打码MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2800,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据包装盒请求打码信号清空MES反馈信号",
+                    "premise_address": 2000,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2800,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,517 @@
+{
+    "lower_computer": {
+        "local_database": false,
+        "type": "tag",
+        "tag": {
+            "plc_ip": "127.0.0.1"
+        }
+    },
+    "secs_conf": {
+        "secs_ip": "127.0.0.1",
+        "secs_port": 5000,
+        "connect_mode": "PASSIVE",
+        "model_name": "CYG SECSGEM",
+        "software_version": "1.0.0"
+    },
+    "collection_events": {
+        "control_state_change": {
+            "ceid": 1001,
+            "description": "控制状态改变",
+            "link_reports": {
+                "1": [
+                    501
+                ]
+            }
+        },
+        "machine_state_change": {
+            "ceid": 1002,
+            "description": "运行状态变化",
+            "link_reports": {
+                "2": [
+                    502
+                ]
+            }
+        },
+        "carrier_in_request": {
+            "ceid": 1003,
+            "description": "回流焊请求进站",
+            "link_reports": {
+                "3": [
+                    602
+                ]
+            }
+        },
+        "product_out_carrier": {
+            "ceid": 1004,
+            "description": "焊接后的产品从回流焊拿出",
+            "link_reports": {
+                "4": [
+                    602, 601, 610
+                ]
+            }
+        },
+        "carrier_out": {
+            "ceid": 1005,
+            "description": "放了产品的回流焊托盘出站",
+            "link_reports": {
+                "5": [
+                    602
+                ]
+            }
+        }
+    },
+    "status_variable": {
+        "current_control_state": {
+            "svid": 501,
+            "unit": "",
+            "value": 0,
+            "value_type": "BINARY",
+            "description": "当前控制状态"
+        },
+        "current_machine_state": {
+            "svid": 502,
+            "unit": "",
+            "value": 2,
+            "value_type": "BINARY",
+            "description": "当前运行状态"
+        },
+        "current_lot_name": {
+            "svid": 503,
+            "unit": "",
+            "value": "",
+            "value_type": "ASCII",
+            "description": "当前工单名称"
+        },
+        "lot_quality": {
+            "svid": 504,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "要生产的工单数量"
+        },
+        "current_recipe_name": {
+            "svid": 505,
+            "unit": "",
+            "value": "",
+            "value_type": "ASCII",
+            "description": "当前配方名称"
+        },
+        "current_recipe_id": {
+            "svid": 506,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "当前配方id"
+        },
+        "pp_select_recipe_name": {
+            "svid": 507,
+            "unit": "",
+            "value": "",
+            "value_type": "ASCII",
+            "description": "要切换配方名称"
+        },
+        "pp_select_recipe_id": {
+            "svid": 508,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "要切换配方id"
+        }
+    },
+    "data_values": {
+        "product_code": {
+            "dvid": 601,
+            "value_type": "ASCII",
+            "description": "产品码"
+        },
+        "carrier_code": {
+            "dvid": 602,
+            "value_type": "ASCII",
+            "description": "回流焊托盘码"
+        },
+        "is_allow_carrier_in": {
+            "dvid": 608,
+            "value_type": "UINT_4",
+            "description": "eap是否允许回流焊托盘进站"
+        },
+        "is_allow_carrier_in_reply": {
+            "dvid": 609,
+            "value_type": "BOOL",
+            "description": "eap是否回复了回流焊托盘进站"
+        },
+        "two_bridge_code": {
+            "dvid": 610,
+            "value_type": "ASCII",
+            "description": "二桥码"
+        },
+        "is_allow_two_bridge": {
+            "dvid": 611,
+            "value_type": "UINT_4",
+            "description": "eap是否允许二桥放回回流焊"
+        },
+        "is_allow_two_bridge_reply": {
+            "dvid": 612,
+            "value_type": "BOOL",
+            "description": "eap是否回复了二桥可做"
+        },
+        "substrate_codes": {
+            "dvid": 613,
+            "value_type": "ARRAY",
+            "description": "eap下发的所有基板码"
+        },
+        "steel_sheet_codes": {
+            "dvid": 614,
+            "value_type": "ARRAY",
+            "description": "eap下发的所有钢片码"
+        },
+        "limit_codes": {
+            "dvid": 615,
+            "value_type": "ARRAY",
+            "description": "eap下发的所有限位框码"
+        },
+        "press_block_codes": {
+            "dvid": 616,
+            "value_type": "ARRAY",
+            "description": "eap下发的所有压块码"
+        },
+        "product_codes": {
+            "dvid": 617,
+            "value_type": "ARRAY",
+            "description": "eap下发的所有产品码"
+        },
+        "product_states": {
+            "dvid": 618,
+            "value_type": "ARRAY",
+            "description": "eap下发的所有产品状态"
+        },
+        "two_bridge_codes": {
+            "dvid": 619,
+            "value_type": "ARRAY",
+            "description": "eap下发的所有二桥码"
+    }
+    },
+    "equipment_constant": {
+        "occur_alarm_code": {
+            "ecid": 705,
+            "unit": "",
+            "default_value": 2,
+            "value_type": "UINT_4",
+            "description": "发生报警代码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "clear_alarm_code": {
+            "ecid": 706,
+            "unit": "",
+            "default_value": 9,
+            "value_type": "UINT_4",
+            "description": "清除报警代码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mes_heart_gap": {
+            "ecid": 707,
+            "unit": "",
+            "default_value": 2,
+            "value_type": "UINT_4",
+            "description": "MES心跳间隔时间",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "alarm_state": {
+            "ecid": 708,
+            "unit": "",
+            "default_value": 4,
+            "value_type": "UINT_4",
+            "description": "报警状态",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_user_name": {
+            "ecid": 709,
+            "unit": "",
+            "default_value": "root",
+            "value_type": "ASCII",
+            "description": "用户名",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_password": {
+            "ecid": 710,
+            "unit": "",
+            "default_value": "liuwei.520",
+            "value_type": "ASCII",
+            "description": "密码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_host": {
+            "ecid": 711,
+            "unit": "",
+            "default_value": "127.0.0.1",
+            "value_type": "ASCII",
+            "description": "数据库ip",
+            "min_value": 0,
+            "max_value": 0
+        }
+    },
+    "remote_commands": {
+        "pp_select": {
+            "rcmd": "pp_select",
+            "params": [
+                "recipe_name"
+            ],
+            "description": "eap通知设备切换配方"
+        },
+        "new_lot": {
+            "rcmd": "new_lot",
+            "params": [
+                "lot_name", "lot_quality"
+            ],
+            "description": "eap开工单"
+        },
+        "carrier_in_reply": {
+            "rcmd": "carrier_in_reply",
+            "params": [
+                "is_allow_carrier_in",
+                "substrate_codes",
+                "product_codes",
+                "steel_sheet_codes",
+                "limit_codes",
+                "press_block_codes",
+                "product_states",
+                "is_last",
+                "lot_name"
+            ],
+            "description": "eap回复回流焊托盘是否可以进站"
+        }
+    },
+    "signal_address": {
+        "mes_heart": {
+            "description": "MES 心跳",
+            "address": 92,
+            "data_type": "bool",
+            "bit_index": 0
+        },
+        "control_state": {
+            "description": "控制状态",
+            "address": 0,
+            "data_type": "bool",
+            "bit_index": 1
+        },
+        "machine_state": {
+            "description": "设备运行状态",
+            "address": 2,
+            "data_type": "int"
+        },
+        "current_recipe_id": {
+            "description": "当前配方id",
+            "address": 2,
+            "data_type": "int"
+        },
+        "alarm_code": {
+            "description": "当运行状态是4alarm时读取报警代码",
+            "address": 2,
+            "data_type": "int"
+        },
+        "pp_select": {
+            "description": "EAP 切换配方",
+            "call_back": [
+                {
+                    "description": "写入要切换的配方id",
+                    "operation_func": "write_sv_value",
+                    "address": 252,
+                    "data_type": "int",
+                    "sv_name": "pp_select_recipe_id"
+                },
+                {
+                    "description": "通知 plc 切换配方信号",
+                    "operation_func": "write_specify_value",
+                    "address": 250,
+                    "data_type": "bool",
+                    "bit_index": 0,
+                    "value": true
+                },
+                {
+                    "description": "清空 通知 plc 切换配方信号",
+                    "premise_address": 246,
+                    "premise_data_type": "bool",
+                    "premise_bit_index": 0,
+                    "premise_value": true,
+                    "premise_size": 2,
+                    "wait_time": 5,
+                    "operation_func": "write_specify_value",
+                    "address": 250,
+                    "data_type": "bool",
+                    "bit_index": 0,
+                    "value": false
+                },
+                {
+                    "description": "读取设备当前配方id",
+                    "operation_func": "read_update_sv",
+                    "address": 248,
+                    "data_type": "int",
+                    "sv_name": "current_recipe_id"
+                }
+            ]
+        },
+
+        "carrier_in_request": {
+            "loop": true,
+            "description": "回流焊请求进站",
+            "address": "2",
+            "data_type": "int",
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "清空 eap 已回馈标识",
+                    "operation_func": "clean_eap_reply",
+                    "dv_name": "is_allow_carrier_in_reply"
+                },
+                {
+                    "description": "读取回流焊托盘码",
+                    "operation_func": "read_update_dv",
+                    "address": "2",
+                    "data_type": "str",
+                    "dv_name": "carrier_code",
+                    "event_name": "carrier_in_request"
+                },
+                {
+                    "description": "等待 eap 回复回流焊请求进站",
+                    "operation_func": "wait_eap_reply",
+                    "dv_name": "is_allow_carrier_in_reply"
+                },
+                {
+                    "description": "写入回流焊托盘是否能进站",
+                    "operation_func": "write_dv_value",
+                    "address": "D16011",
+                    "data_type": "int",
+                    "dv_name": "is_allow_carrier_in"
+                },
+                {
+                    "description": "写入eap下发的所有基板码",
+                    "operation_func": "write_multiple_dv_value_tag",
+                    "address": "",
+                    "data_type": "string",
+                    "dv_name": "substrate_codes"
+                },
+                {
+                    "description": "写入eap下发的所有产品码",
+                    "operation_func": "write_multiple_dv_value_tag",
+                    "address": "",
+                    "data_type": "string",
+                    "dv_name": "product_codes"
+                },
+                {
+                    "description": "写入eap下发的所有钢片码",
+                    "operation_func": "write_multiple_dv_value_tag",
+                    "address": "",
+                    "data_type": "string",
+                    "dv_name": "steel_sheet_codes"
+                },
+                {
+                    "description": "写入eap下发的所有限位框码",
+                    "operation_func": "write_multiple_dv_value_tag",
+                    "address": "",
+                    "data_type": "string",
+                    "dv_name": "limit_codes"
+                },
+                {
+                    "description": "写入eap下发的所有压块码",
+                    "operation_func": "write_multiple_dv_value_tag",
+                    "address": "",
+                    "data_type": "string",
+                    "dv_name": "press_block_codes"
+                },
+                {
+                    "description": "写入eap下发的所有二桥码",
+                    "operation_func": "write_multiple_dv_value_tag",
+                    "address": "",
+                    "data_type": "string",
+                    "dv_name": "two_bridge_codes"
+                },
+                {
+                    "description": "写入eap下发的所有产品状态",
+                    "operation_func": "write_multiple_dv_value_tag",
+                    "address": "",
+                    "data_type": "int",
+                    "dv_name": "product_states"
+                },
+                {
+                    "description": "写入回流焊请求进站信号MES反馈信号",
+                    "operation_func": "write_specify_value",
+                    "address": "D16011",
+                    "data_type": "int",
+                    "value": -1
+                }
+            ]
+},
+        "product_out_carrier": {
+            "loop": true,
+            "description": "焊接后的产品从回流焊拿出",
+            "address": "2",
+            "data_type": "int",
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取回流焊托盘码",
+                    "operation_func": "read_update_dv",
+                    "address": "2",
+                    "data_type": "str",
+                    "dv_name": "carrier_code"
+                },
+                {
+                    "description": "读取产品码",
+                    "operation_func": "read_update_dv",
+                    "address": "2",
+                    "data_type": "str",
+                    "dv_name": "product_code"
+                },
+                {
+                    "description": "读取二桥码",
+                    "operation_func": "read_update_dv",
+                    "address": "2",
+                    "data_type": "str",
+                    "dv_name": "product_out_carrier",
+                    "event_name": "product_out_carrier"
+                },
+                {
+                    "description": "写入焊接后的产品从回流焊拿出MES反馈信号",
+                    "operation_func": "write_specify_value",
+                    "address": "D16011",
+                    "data_type": "int",
+                    "value": -1
+                }
+            ]
+        },
+        "carrier_out": {
+            "loop": true,
+            "description": "放了产品的回流焊托盘出站",
+            "address": "D16004",
+            "data_type": "int",
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取回流焊托盘码",
+                    "operation_func": "read_update_dv",
+                    "address": "D16005",
+                    "data_type": "int",
+                    "dv_name": "carrier_code",
+                    "event_name": "carrier_out"
+                },
+                {
+                    "description": "写入读取回流焊托盘码MES反馈信号",
+                    "operation_func": "write_specify_value",
+                    "address": "D16013",
+                    "data_type": "int",
+                    "value": -1
+                }
+            ]
+        }
+    },
+    "all_recipe": {
+        "1": "",
+        "2": "",
+        "3": ""
+    }
+}

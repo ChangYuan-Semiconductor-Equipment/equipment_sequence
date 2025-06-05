@@ -1,0 +1,266 @@
+{
+    "lower_computer": {
+        "local_database": true,
+        "type": "snap7",
+        "snap7": {
+            "ip": "192.168.250.100",
+            "rack": 0,
+            "slot": 1
+        },
+        "modbus": {
+            "plc_ip": "127.0.0.1",
+            "port": 502
+        },
+        "mitsubishi": {
+            "plc_ip": "127.0.0.1",
+            "port": 502
+        },
+        "tag": {
+            "plc_ip": "127.0.0.1"
+        }
+    },
+    "secs_conf": {
+        "secs_ip": "127.0.0.1",
+        "secs_port": 5000,
+        "connect_mode": "PASSIVE",
+        "model_name": "CYG SECSGEM",
+        "software_version": "1.0.0"
+    },
+    "collection_events": {
+    },
+    "status_variable": {
+        "current_lot_name": {
+            "svid": 504,
+            "unit": "",
+            "value": "mini1",
+            "value_type": "ASCII",
+            "description": "当前工单名称"
+        }
+    },
+    "data_values": {
+        "product_codes_in_plastic": {
+            "dvid": 601,
+            "value_type": "ARRAY",
+            "description": "在塑料盒中的所有产品码"
+        },
+        "label_print_info_one": {
+            "dvid": 602,
+            "value_type": "ASCII",
+            "description": "第一次的打标内容"
+        },
+        "label_print_info_second": {
+            "dvid": 603,
+            "value_type": "ASCII",
+            "description": "第二次的打标内容"
+        },
+        "product_pins_state_in_plastic": {
+            "dvid": 604,
+            "value_type": "ARRAY",
+            "description": "在塑料盒中的所有pin状态"
+        },
+        "products_state": {
+            "dvid": 605,
+            "value_type": "UINT_4",
+            "description": "料盒中产品状态"
+        },
+        "product_count_in_plastic": {
+            "dvid": 606,
+            "value_type": "UINT_4",
+            "description": "当前塑料盒里面的产品个数"
+        },
+        "is_ng_plastic": {
+            "dvid": 608,
+            "value_type": "BOOL",
+            "description": "塑料盒是否NG"
+        },
+        "current_count": {
+            "dvid": 609,
+            "value_type": "UINT_4",
+            "description": "当前塑料盒中的产品个数"
+        }
+
+    },
+    "equipment_constant": {
+        "plc_ip": {
+            "ecid": 701,
+            "unit": "",
+            "default_value": "192.168.250.100",
+            "value_type": "ASCII",
+            "description": "plc_ip",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "plc_rack": {
+            "ecid": 702,
+            "unit": "",
+            "default_value": 0,
+            "value_type": "UINT_4",
+            "description": "plc机架号",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "plc_slot": {
+            "ecid": 703,
+            "unit": "",
+            "default_value": 1,
+            "value_type": "UINT_4",
+            "description": "plc槽号",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "db_num": {
+            "ecid": 704,
+            "unit": "",
+            "default_value": 1005,
+            "value_type": "UINT_4",
+            "description": "plc块",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_user_name": {
+            "ecid": 709,
+            "unit": "",
+            "default_value": "cyg",
+            "value_type": "ASCII",
+            "description": "数据库用户名",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_password": {
+            "ecid": 710,
+            "unit": "",
+            "default_value": "liuwei.520",
+            "value_type": "ASCII",
+            "description": "数据库密码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_host": {
+            "ecid": 711,
+            "unit": "",
+            "default_value": "192.168.250.99",
+            "value_type": "ASCII",
+            "description": "数据库ip",
+            "min_value": 0,
+            "max_value": 0
+        }
+    },
+    "remote_commands": {
+    },
+    "signal_address": {
+        "label_print_request_one": {
+            "loop": true,
+            "description": "塑料盒第一次请求打码",
+            "address": 1358,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取塑料盒中的所有产品码",
+                    "operation_func": "read_multiple_update_dv_snap7",
+                    "count_num": 6,
+                    "address": 1864,
+                    "data_type": "str",
+                    "size": 64,
+                    "gap": 66,
+                    "dv_name": "product_codes_in_plastic"
+                },
+                {
+                    "description": "读取料盒中所有产品状态",
+                    "operation_func": "read_multiple_update_dv_snap7",
+                    "count_num": 6,
+                    "address": 2260,
+                    "data_type": "int",
+                    "size": 2,
+                    "gap": 2,
+                    "dv_name": "products_state"
+                },
+                {
+                    "description": "读取塑料盒中的所有产品pin状态",
+                    "operation_func": "read_multiple_update_dv_snap7",
+                    "count_num": 48,
+                    "address": 2272,
+                    "data_type": "int",
+                    "size": 2,
+                    "gap": 2,
+                    "dv_name": "product_pins_state_in_plastic"
+                },
+                {
+                    "description": "请求第一次的打标内容",
+                    "operation_func": "label_print_request_one"
+                },
+                {
+                    "description": "写入打标内容",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 2970,
+                    "data_type": "str",
+                    "size": 64,
+                    "dv_name": "label_print_info_one"
+                },
+                {
+                    "description": "写入塑料盒第一次请求打码MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2968,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据塑料盒第一次请求打码信号清空MES反馈信号",
+                    "premise_address": 1358,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2968,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "label_print_request_second": {
+            "loop": true,
+            "description": "塑料盒第二次请求打码",
+            "address": 1358,
+            "data_type": "int",
+            "size": 2,
+            "value": 2,
+            "call_backs": [
+                {
+                    "description": "请求第二次的打标内容",
+                    "operation_func": "label_print_request_second"
+                },
+                {
+                    "description": "写入打标内容",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 3036,
+                    "data_type": "str",
+                    "size": 64,
+                    "dv_name": "label_print_info_second"
+                },
+                {
+                    "description": "写入请求第二次的打标内容MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2968,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据请求第二次的打标内容信号清空MES反馈信号",
+                    "premise_address": 1358,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 2968,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        }
+    }
+}

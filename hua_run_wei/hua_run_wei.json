@@ -1,0 +1,322 @@
+{
+    "lower_computer": {
+        "local_database": false,
+        "type": "mitsubishi",
+        "mitsubishi": {
+            "plc_ip": "192.168.0.100",
+            "port": 5010
+        }
+    },
+    "secs_conf": {
+        "secs_ip": "127.0.0.1",
+        "secs_port": 5000,
+        "connect_mode": "PASSIVE",
+        "model_name": "CYG SECSGEM",
+        "software_version": "1.0.0"
+    },
+    "collection_events": {
+        "control_state_change": {
+            "ceid": 1001,
+            "description": "控制状态改变",
+            "link_reports": {
+                "1": [
+                    501
+                ]
+            }
+        },
+        "machine_state_change": {
+            "ceid": 1002,
+            "description": "运行状态变化",
+            "link_reports": {
+                "2": [
+                    502
+                ]
+            }
+        },
+        "scan_place_nut": {
+            "ceid": 1004,
+            "description": "上螺母工位扫码事件",
+            "link_reports": {
+                "4": [
+                    601
+                ]
+            }
+        },
+        "scan_flatten": {
+            "ceid": 1005,
+            "description": "整平工位扫码事件",
+            "link_reports": {
+                "5": [
+                    602
+                ]
+            }
+        },
+        "upload_flatten_press_value": {
+            "ceid": 1006,
+            "description": "整平工位压力数据上传事件",
+            "link_reports": {
+                "6": [
+                    602, 604
+                ]
+            }
+        },
+        "upload_product_state": {
+            "ceid": 1007,
+            "description": "上传视觉检测产品结果事件",
+            "link_reports": {
+                "7": [
+                    605, 606
+                ]
+            }
+        }
+    },
+    "status_variable": {
+        "current_control_state": {
+            "svid": 501,
+            "unit": "",
+            "value": 0,
+            "value_type": "BINARY",
+            "description": "当前控制状态"
+        },
+        "current_machine_state": {
+            "svid": 502,
+            "unit": "",
+            "value": 0,
+            "value_type": "BINARY",
+            "description": "当前运行状态"
+        }
+    },
+    "data_values": {
+        "product_code_nut": {
+            "dvid": 601,
+            "value_type": "ASCII",
+            "description": "上螺母工位扫码产品码"
+        },
+        "product_code_flatten": {
+            "dvid": 602,
+            "value_type": "ASCII",
+            "value": "6S52009 2508 00029",
+            "description": "整平工位扫码产品码"
+        },
+        "press_value": {
+            "dvid": 604,
+            "value_type": "F4",
+            "value": 223.341,
+            "description": "整平压力值"
+        },
+        "product_code_sight": {
+            "dvid": 605,
+            "value_type": "ASCII",
+            "description": "视觉检查时产品码"
+        },
+        "product_state": {
+            "dvid": 606,
+            "value_type": "UINT_4",
+            "description": "产品状态"
+        }
+    },
+    "equipment_constant": {
+        "occur_alarm_code": {
+            "ecid": 705,
+            "unit": "",
+            "default_value": 2,
+            "value_type": "UINT_4",
+            "description": "发生报警代码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "clear_alarm_code": {
+            "ecid": 706,
+            "unit": "",
+            "default_value": 9,
+            "value_type": "UINT_4",
+            "description": "清除报警代码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mes_heart_gap": {
+            "ecid": 707,
+            "unit": "",
+            "default_value": 2,
+            "value_type": "UINT_4",
+            "description": "MES心跳间隔时间",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "alarm_state": {
+            "ecid": 708,
+            "unit": "",
+            "default_value": 4,
+            "value_type": "UINT_4",
+            "description": "报警状态",
+            "min_value": 0,
+            "max_value": 0
+        }
+    },
+    "remote_commands": {
+    },
+    "signal_address": {
+        "mes_heart": {
+            "loop": false,
+            "description": "mes心跳",
+            "address": "D13000",
+            "data_type": "int16"
+        },
+        "control_state": {
+            "loop": false,
+            "description": "控制模式",
+            "address": "M10083",
+            "data_type": "bool"
+        },
+        "machine_state": {
+            "loop": false,
+            "description": "设备运行状态",
+            "address": "D13100",
+            "data_type": "int16"
+        },
+        "scan_place_nut": {
+            "loop": true,
+            "description": "上螺母工位扫码信号",
+            "address": "D13001",
+            "data_type": "int16",
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "控制扫码枪进行扫码",
+                    "operation_func": "scan_data_logic",
+                    "dv_name": "product_code_nut",
+                    "event_name": "scan_place_nut"
+                },
+                {
+                    "description": "写入上螺母工位扫码信号MES反馈信号",
+                    "operation_func": "write_specify_value",
+                    "address": "D13011",
+                    "data_type": "int16",
+                    "value": 1
+                },
+                {
+                    "description": "根据上螺母工位扫码信号清空MES反馈信号",
+                    "premise_address": "D13001",
+                    "premise_data_type": "int16",
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value",
+                    "address": "D13011",
+                    "data_type": "int16",
+                    "value": 0
+                }
+            ]
+        },
+        "scan_flatten": {
+            "loop": false,
+            "description": "整平工位扫码事件",
+            "address": "D13002",
+            "data_type": "int16",
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "控制扫码枪进行扫码",
+                    "operation_func": "scan_data_logic",
+                    "dv_name": "product_code_flatten",
+                    "event_name": "scan_flatten"
+                },
+                {
+                    "description": "写入整平工位扫码事件MES反馈信号",
+                    "operation_func": "write_specify_value",
+                    "address": "D13012",
+                    "data_type": "int16",
+                    "value": 1
+                },
+                {
+                    "description": "根据整平工位扫码事件信号清空MES反馈信号",
+                    "premise_address": "D13002",
+                    "premise_data_type": "int16",
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value",
+                    "address": "D13012",
+                    "data_type": "int16",
+                    "value": 0
+                }
+            ]
+        },
+        "upload_flatten_press_value": {
+            "loop": true,
+            "description": "整平工位压力数据上传事件",
+            "address": "D13003",
+            "data_type": "int16",
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "控制扫码枪进行扫码",
+                    "operation_func": "scan_data_logic",
+                    "dv_name": "product_code_flatten",
+                    "event_name": "scan_flatten"
+                },
+                {
+                    "description": "读取压力值",
+                    "operation_func": "read_update_dv",
+                    "address": "D15330",
+                    "data_type": "int32",
+                    "scale": 100000,
+                    "dv_name": "press_value",
+                    "event_name": "upload_flatten_press_value"
+                },
+                {
+                    "description": "写入整平工位压力数据上传事件MES反馈信号",
+                    "operation_func": "write_specify_value",
+                    "address": "D13013",
+                    "data_type": "int16",
+                    "value": 1
+                },
+                {
+                    "description": "根据整平工位压力数据上传事件清空MES反馈信号",
+                    "premise_address": "D13003",
+                    "premise_data_type": "int16",
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value",
+                    "address": "D13013",
+                    "data_type": "int16",
+                    "value": 0
+                }
+            ]
+        },
+        "upload_product_state": {
+            "loop": true,
+            "description": "上传视觉检测产品结果事件",
+            "address": "D13004",
+            "data_type": "int16",
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "控制扫码枪进行扫码",
+                    "operation_func": "scan_data_logic",
+                    "dv_name": "product_code_sight"
+                },
+                {
+                    "description": "读取视觉检查结果",
+                    "operation_func": "read_update_dv",
+                    "address": "D13005",
+                    "data_type": "int16",
+                    "dv_name": "product_state",
+                    "event_name": "upload_product_state"
+                },
+                {
+                    "description": "写入上传视觉检测产品结果事件MES反馈信号",
+                    "operation_func": "write_specify_value",
+                    "address": "D13014",
+                    "data_type": "int16",
+                    "value": 1
+                },
+                {
+                    "description": "根据上传视觉检测产品结果事件清空MES反馈信号",
+                    "premise_address": "D13004",
+                    "premise_data_type": "int16",
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value",
+                    "address": "D13014",
+                    "data_type": "int16",
+                    "value": 0
+                }
+            ]
+        }
+    }
+}

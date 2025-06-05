@@ -1,0 +1,581 @@
+{
+    "lower_computer": {
+        "local_database": false,
+        "type": "snap7",
+        "snap7": {
+            "ip": "10.21.142.10",
+            "rack": 0,
+            "slot": 1
+        }
+    },
+    "secs_conf": {
+        "secs_ip": "10.75.0.83",
+        "secs_port": 5000,
+        "connect_mode": "PASSIVE",
+        "model_name": "CYG SECSGEM",
+        "software_version": "1.0.0"
+    },
+    "collection_events": {
+        "control_state_change": {
+            "ceid": 1001,
+            "description": "控制状态改变",
+            "link_reports": {
+                "1": [
+                    501
+                ]
+            }
+        },
+        "machine_state_change": {
+            "ceid": 1002,
+            "description": "运行状态变化",
+            "link_reports": {
+                "2": [
+                    502
+                ]
+            }
+        },
+        "carrier_in_roll": {
+            "ceid": 1009,
+            "description": "带有产品的回流焊托盘进站",
+            "link_reports": {
+                "9": [
+                    601
+                ]
+            }
+        },
+        "carrier_out_key": {
+            "ceid": 1010,
+            "description": "带有产品的键合托盘出站",
+            "link_reports": {
+                "10": [
+                    608,
+                    609,
+                    610
+                ]
+            }
+        }
+    },
+    "status_variable": {
+        "current_control_state": {
+            "svid": 501,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "当前控制模式"
+        },
+        "current_machine_state": {
+            "svid": 502,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "当前设备状态"
+        },
+        "current_recipe_name": {
+            "svid": 503,
+            "unit": "",
+            "value": "A1DBC",
+            "value_type": "ASCII",
+            "description": "当前配方名称"
+        },
+        "current_recipe_id": {
+            "svid": 504,
+            "unit": "",
+            "value": 3,
+            "value_type": "UINT_4",
+            "description": "当前配方id"
+        },
+        "pp_select_recipe_name": {
+            "svid": 505,
+            "unit": "",
+            "value": "",
+            "value_type": "ASCII",
+            "description": "要切换配方名称"
+        },
+        "pp_select_recipe_id": {
+            "svid": 506,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "要切换配方id"
+        }
+    },
+    "data_values": {
+        "carrier_code_roll": {
+            "dvid": 601,
+            "value_type": "ASCII",
+            "description": "plc读取的回流焊托盘码"
+        },
+        "dbc_code_list": {
+            "dvid": 602,
+            "value_type": "ARRAY",
+            "description": "在回流焊中的所有dbc码",
+            "value": [
+                "liuwei1",
+                "liuwei2"
+            ]
+        },
+        "dbc_index_list": {
+            "dvid": 603,
+            "value_type": "ARRAY",
+            "description": "在回流焊中的所有dbc穴位",
+            "value": [
+                3,
+                4
+            ]
+        },
+        "is_allow_carrier_roll_in": {
+            "dvid": 604,
+            "value_type": "UINT_4",
+            "description": "是否允许回流焊托盘那进站",
+            "value": 2
+        },
+        "dbc_state_list": {
+            "dvid": 605,
+            "value_type": "ARRAY",
+            "description": "在回流焊中的所有dbc状态",
+            "value": [
+                1,
+                1
+            ]
+        },
+        "carrier_in_roll_reply": {
+            "dvid": 607,
+            "value_type": "BOOL",
+            "description": "eap是否回复回流焊托盘请求进站"
+        },
+        "carrier_code_key": {
+            "dvid": 608,
+            "value_type": "ASCII",
+            "description": "出站键合托盘码"
+        },
+        "dbc_code_list_key": {
+            "dvid": 609,
+            "value_type": "ARRAY",
+            "base_value_type": "ASCII",
+            "description": "出站键合托盘里的dbc码列表",
+            "value": [
+                "dbc1",
+                "dbc2",
+                "dbc3"
+            ]
+        },
+        "dbc_state_list_key": {
+            "dvid": 610,
+            "value_type": "ARRAY",
+            "base_value_type": "UINT_4",
+            "description": "出站键合托盘里的dbc状态列表",
+            "value": [
+                1,
+                1,
+                1
+            ]
+        },
+        "dbc_state": {
+            "dvid": 611,
+            "value_type": "UINT_4",
+            "description": "单个dbc状态"
+        },
+        "dnc_index_key": {
+            "dvid": 612,
+            "value_type": "UINT_4",
+            "description": "单个dbc所在的键合托盘穴位"
+        },
+        "dbc_code_request": {
+            "dvid": 613,
+            "value_type": "ASCII",
+            "description": "请求是否可以做的dbc码"
+        },
+        "carrier_code_one_dbc": {
+            "dvid": 614,
+            "value_type": "ASCII",
+            "description": "单个dbc码放入键合托盘时的托盘码"
+        },
+        "dbc_code_in_key": {
+            "dvid": 615,
+            "value_type": "ASCII",
+            "description": "放入键合托盘里的dbc码"
+        }
+    },
+    "equipment_constant": {
+        "db_num": {
+            "ecid": 704,
+            "unit": "",
+            "default_value": 1998,
+            "value_type": "UINT_4",
+            "description": "plc块",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "x_ray_ip": {
+            "ecid": 705,
+            "unit": "",
+            "default_value": "10.75.0.85",
+            "value_type": "ASCII",
+            "description": "x-ray的服务端ip",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "x_ray_port": {
+            "ecid": 706,
+            "unit": "",
+            "default_value": 8080,
+            "value_type": "UINT_4",
+            "description": "x-ray的服务端端口",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mes_heart_gap": {
+            "ecid": 707,
+            "unit": "",
+            "default_value": 2,
+            "value_type": "UINT_4",
+            "description": "心跳间隔",
+            "min_value": 0,
+            "max_value": 0
+        }
+    },
+    "remote_commands": {
+        "pp_select": {
+            "rcmd": "pp_select",
+            "params": [
+                "recipe_name"
+            ],
+            "description": "切换配方"
+        },
+        "carrier_in_roll_reply": {
+            "rcmd": "carrier_in_roll_reply",
+            "params": [
+                "is_allow_carrier_roll_in",
+                "product_codes",
+                "product_indexes",
+                "product_states"
+            ],
+            "description": "下发回流焊托盘里的产品信息"
+        }
+    },
+    "signal_address": {
+        "mes_heart": {
+            "description": "MES 心跳",
+            "address": 92,
+            "data_type": "bool"
+        },
+        "control_state": {
+            "description": "控制状态",
+            "address": 0,
+            "bit_index": 1,
+            "data_type": "bool"
+        },
+        "machine_state": {
+            "description": "设备运行状态",
+            "address": 2,
+            "data_type": "int"
+        },
+        "carrier_in_roll": {
+            "loop": true,
+            "description": "带有产品的回流焊托盘进站",
+            "address": 30,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取回流焊托盘码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 266,
+                    "data_type": "str",
+                    "size": 80,
+                    "dv_name": "carrier_code_roll",
+                    "event_name": "carrier_in_roll"
+                },
+                {
+                    "description": "等待 eap 回复回流焊托盘是否可以进站及托盘里的dbc信息",
+                    "operation_func": "wai_eap_reply",
+                    "param": "carrier_in_roll_reply"
+                },
+                {
+                    "description": "写入是否允许回流焊托盘进站",
+                    "operation_func": "write_dv_value_snap7",
+                    "address": 348,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "is_allow_carrier_roll_in"
+                },
+                {
+                    "description": "写入配方id",
+                    "operation_func": "write_sv_value_snap7",
+                    "address": 350,
+                    "data_type": "int",
+                    "size": 2,
+                    "sv_name": "current_recipe_id"
+                },
+                {
+                    "description": "写入回流焊所有穴位的dbc状态",
+                    "operation_func": "write_multiple_dv_value_snap7",
+                    "address": 610,
+                    "data_type": "int",
+                    "size": 2,
+                    "count": 36,
+                    "gap": 258,
+                    "dv_name": "dbc_state_list"
+                },
+                {
+                    "description": "写入回流焊所有穴位的dbc码",
+                    "operation_func": "write_multiple_dv_value_snap7",
+                    "address": 694,
+                    "data_type": "str",
+                    "size": 80,
+                    "count": 36,
+                    "gap": 258,
+                    "dv_name": "dbc_code_list"
+                },
+                {
+                    "description": "写入带有产品的回流焊托盘进站MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 184,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据带有产品的回流焊托盘进站信号清空MES反馈信号",
+                    "premise_address": 30,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 184,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "dbc_request": {
+            "loop": true,
+            "description": "dbc请求放入键合托盘",
+            "address": 32,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取dbc码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 13510,
+                    "data_type": "str",
+                    "size": 80,
+                    "dv_name": "dbc_code_request"
+                },
+                {
+                    "description": "写入是否可以放入键合托盘",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 13592,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "写入配方id",
+                    "operation_func": "write_sv_value_snap7",
+                    "address": 13594,
+                    "data_type": "int",
+                    "size": 2,
+                    "sv_name": "current_recipe_id"
+                },
+                {
+                    "description": "写dbc请求放入键合托盘信号MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 186,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据dbc请求放入键合托盘信号信号清空MES反馈信号",
+                    "premise_address": 32,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 186,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "carrier_out_key": {
+            "loop": true,
+            "description": "带有产品的键合托盘出站信号",
+            "address": 62,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取键合托盘码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 13680,
+                    "data_type": "str",
+                    "size": 80,
+                    "dv_name": "carrier_code_key"
+                },
+                {
+                    "description": "读取键合托盘里的所有dbc码",
+                    "operation_func": "read_multiple_update_dv_snap7",
+                    "address": 14104,
+                    "data_type": "str",
+                    "count_num": 9,
+                    "gap": 258,
+                    "size": 80,
+                    "dv_name": "dbc_code_list_key"
+                },
+                {
+                    "description": "读取键合托盘里的所有dbc状态",
+                    "operation_func": "read_multiple_update_dv_snap7",
+                    "address": 14020,
+                    "data_type": "int",
+                    "count_num": 9,
+                    "gap": 258,
+                    "size": 2,
+                    "dv_name": "dbc_state_list_key",
+                    "event_name": "carrier_out_key"
+                },
+                {
+                    "description": "写入带有产品的键合托盘出站信号MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 216,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据带有产品的键合托盘出站信号信号清空MES反馈信号",
+                    "premise_address": 62,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 216,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                },
+                {
+                    "description": "给 X-RAY 发送键合托盘出站数据",
+                    "operation_func": "send_carrier_info_to_xray"
+                }
+            ]
+        },
+        "dbc_key_one": {
+            "loop": true,
+            "description": "dbc放入键合托盘上报",
+            "address": 64,
+            "data_type": "int",
+            "size": 2,
+            "value": 1,
+            "call_backs": [
+                {
+                    "description": "读取放入键合托盘里的dbc状态",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 16600,
+                    "data_type": "int",
+                    "size": 2,
+                    "dv_name": "dbc_state"
+                },
+                {
+                    "description": "读取键合托盘码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 16612,
+                    "data_type": "str",
+                    "size": 80,
+                    "dv_name": "carrier_code_key"
+                },
+                {
+                    "description": "读取dbc码",
+                    "operation_func": "read_update_dv_snap7",
+                    "address": 16694,
+                    "data_type": "str",
+                    "size": 80,
+                    "dv_name": "dbc_code_in_key"
+                },
+                {
+                    "description": "写入dbc放入键合托盘上报信号MES反馈信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 218,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 1
+                },
+                {
+                    "description": "根据dbc放入键合托盘上报信号清空MES反馈信号",
+                    "premise_address": 64,
+                    "premise_data_type": "int",
+                    "premise_size": 2,
+                    "premise_value": 0,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 218,
+                    "data_type": "int",
+                    "size": 2,
+                    "value": 0
+                }
+            ]
+        },
+        "pp_select": {
+            "description": "EAP 切换配方",
+            "call_back": [
+                {
+                    "description": "写入要切换的配方id",
+                    "operation_func": "write_sv_value_snap7",
+                    "address": 252,
+                    "data_type": "int",
+                    "size": 2,
+                    "sv_name": "pp_select_recipe_id"
+                },
+                {
+                    "description": "通知 plc 切换配方信号",
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 250,
+                    "data_type": "bool",
+                    "bit_index": 0,
+                    "value": true
+                },
+                {
+                    "description": "清空 通知 plc 切换配方信号",
+                    "premise_address": 246,
+                    "premise_data_type": "bool",
+                    "premise_bit_index": 0,
+                    "premise_value": true,
+                    "premise_size": 2,
+                    "wait_time": 5,
+                    "operation_func": "write_specify_value_snap7",
+                    "address": 250,
+                    "data_type": "bool",
+                    "bit_index": 0,
+                    "value": false
+                },
+                {
+                    "description": "读取设备当前配方id",
+                    "operation_func": "read_update_sv_snap7",
+                    "address": 248,
+                    "data_type": "int",
+                    "size": 2,
+                    "sv_name": "current_recipe_id"
+                }
+            ]
+        }
+    },
+    "recipes": {
+        "current_recipe": {
+            "1": ""
+        },
+        "all_recipe": {
+            "1": "A6-HPD-DBC",
+            "2": "ZHAI-A6-HP",
+            "3": "A1DBC",
+            "4": "MED3",
+            "5": "ZHAI-MED3",
+            "6": "ZHAI-A1DBC"
+        }
+    }
+}
