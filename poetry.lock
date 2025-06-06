@@ -700,14 +700,14 @@ reference = "mirrors"
 
 [[package]]
 name = "mysql-api"
-version = "1.2.2"
+version = "1.3.0"
 description = "封装mysql操作"
 optional = false
 python-versions = ">=3.11,<4.0"
 groups = ["main"]
 files = [
-    {file = "mysql_api-1.2.2-py3-none-any.whl", hash = "sha256:e81f34b7294bc3cacca147246d802a632091381b76aa5c2a8d4ce07f0613c664"},
-    {file = "mysql_api-1.2.2.tar.gz", hash = "sha256:e2d7562383e236d35f21647e6e9e268fa61eafd1af00f3a1c957ca8a571253ec"},
+    {file = "mysql_api-1.3.0-py3-none-any.whl", hash = "sha256:3149271582580fda926033f6f1176212dfc5e078bfbd6b9ba1db3c335d622313"},
+    {file = "mysql_api-1.3.0.tar.gz", hash = "sha256:cfc9f15aa311ab99dc4fdd54e5422444a35c8a437cee928ecbcf3848d45dc122"},
 ]
 
 [package.dependencies]
@@ -903,14 +903,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-equipment"
-version = "1.21.0"
+version = "1.22.2"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_equipment-1.21.0-py3-none-any.whl", hash = "sha256:8a3601c1f12310bd5086f19bb4afba8b2763b47bcde34fcef99154e9e71bf5ff"},
-    {file = "passive_equipment-1.21.0.tar.gz", hash = "sha256:a7b9b220ed4ce053ed07cfde2d2bc4e9f5948b80885bc8729287973658ade99b"},
+    {file = "passive_equipment-1.22.2-py3-none-any.whl", hash = "sha256:e1dd713e8678863680bb526c4870ef9e0dd78d7055c33f2c69bd722a351e3e95"},
+    {file = "passive_equipment-1.22.2.tar.gz", hash = "sha256:d9af07360b106cb22fe9973aa764ce68393c0e4d72ecaf72c18becbcaf612781"},
 ]
 
 [package.dependencies]
@@ -922,7 +922,7 @@ inovance-tag-cyg = "1.1.0"
 mitsubishi-plc = "1.3.0"
 modbus-api = "1.1.0"
 modbus-tk = ">=1.1.4,<2.0.0"
-mysql-api = "1.2.2"
+mysql-api = "1.3.0"
 openpyxl = ">=3.1.5,<4.0.0"
 pandas = ">=2.2.3,<3.0.0"
 pillow = ">=10.4.0,<11.0.0"
@@ -1716,4 +1716,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "902eb5d9e489abcfbcee20c14e0cfcabbfd94b42cb547d0b1eb2d6cf93a6347d"
+content-hash = "6dd240e6668a174c8676645adfbfaa0e7fd18dccc2d3404f3af05e69b35dc12d"
