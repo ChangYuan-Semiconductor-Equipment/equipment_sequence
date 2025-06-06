@@ -1,6 +1,6 @@
 {
     "lower_computer": {
-        "local_database": false,
+        "local_database": true,
         "type": "snap7",
         "snap7": {
             "ip": "192.168.250.150",
@@ -182,6 +182,15 @@
             "default_value": "liuwei.520",
             "value_type": "ASCII",
             "description": "数据库密码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_host": {
+            "ecid": 711,
+            "unit": "",
+            "default_value": "127.0.0.1",
+            "value_type": "ASCII",
+            "description": "数据库地址",
             "min_value": 0,
             "max_value": 0
         }

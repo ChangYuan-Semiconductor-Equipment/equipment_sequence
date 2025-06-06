@@ -58,7 +58,7 @@ from passive_equipment.handler_passive import HandlerPassive
 class Infineon(HandlerPassive):
 
     def __init__(self):
-        super().__init__()
+        super().__init__(module_path=__file__)
 
     def _on_s02f49(self, handler, message):
         function = self.settings.streams_functions.decode(message)
