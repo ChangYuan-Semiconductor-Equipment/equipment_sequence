@@ -170,7 +170,7 @@
         "mysql_user_name": {
             "ecid": 709,
             "unit": "",
-            "default_value": "cyg",
+            "default_value": "root",
             "value_type": "ASCII",
             "description": "数据库用户名",
             "min_value": 0,
