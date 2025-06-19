@@ -576,6 +576,16 @@ class Uploading(HandlerPassive):
 
         instance = self.mysql.query_data_one(OriginMapData, product_code=product_code)
         product_info = instance.as_dict()
+
+        self.set_dv_value_with_name("product_type", product_info["product_type"])
+        self.set_dv_value_with_name("laser_logo_type", product_info["laser_type"])
+        is_laser_print = product_info["product_info"]
+        if is_laser_print:
+            is_laser_print_real = 1
+        else:
+            is_laser_print_real = 2
+        self.set_dv_value_with_name("is_laser_print", is_laser_print_real)
+
         uppers_str = f"{product_info['vge_upper']:.2f}  {product_info['vce_25_upper']:.2f}  {product_info['vf_25_upper']:.2f}"
         lowers_str = f"{product_info['vge_lower']:.2f}  {product_info['vce_25_lower']:.2f}  {product_info['vf_25_lower']:.2f}"
         vge = f"{product_info['vge_upper']:.2f} {product_info['vge_lower']:.2f}"
@@ -627,28 +637,6 @@ class Uploading(HandlerPassive):
         # 调用请求打那种码的接口
         self._get_label_info()
 
-    def laser_print_request(self, call_back: dict):
-        """产品请求激光打码.
-
-        Args:
-            call_back: 要执行的 call_back 信息.
-        """
-        self.logger.info("正在执行 %s 函数", call_back["operation_func"])
-
-        instance = self.mysql.query_data_one(OriginMapData)
-        is_laser_print = instance.as_dict()["is_laser_print"]
-        laser_type = instance.as_dict()["laser_type"]
-
-        if is_laser_print:
-            is_laser_print_real = 1
-        else:
-            is_laser_print_real = 2
-
-        self.set_dv_value_with_name("is_laser_print", is_laser_print_real)
-        self.set_dv_value_with_name("laser_logo_type", laser_type)
-        product_type = self.mysql.query_data_one(OriginMapData).as_dict()["product_type"]
-        self.set_dv_value_with_name("product_type", product_type)
-
     def laser_print(self, call_back: dict):
         """开始打印激光码.
 
@@ -656,12 +644,10 @@ class Uploading(HandlerPassive):
             call_back: 要执行的 call_back 信息.
         """
         self.logger.info("正在执行 %s 函数", call_back["operation_func"])
-        time.sleep(2)
         laser_type_map = {
             1: "M1_C_TG", 2: "M1_D_TG"
         }
-        laser_type = self.mysql.query_data_one(OriginMapData).as_dict()["laser_type"]
-        self.logger.info("数据库记录要打激光的类型是: %s", laser_type)
+        laser_type = self.get_dv_value_with_name("laser_logo_type")
         file_name = laser_type_map[laser_type]
         self.logger.info("对应的模板文件是: %s", file_name)
 
@@ -669,14 +655,11 @@ class Uploading(HandlerPassive):
         self.logger.info("激光软件是否打开: %s", state)
         if state:
             if laser_type == 1:
-                product_type_data_base = self.mysql.query_data_one(OriginMapData).as_dict()["product_type"]
-                self.logger.info("数据库产品码: %s", product_type_data_base)
-
-                self.logger.info("更新产品码: %s", product_type_data_base)
-                self.gkg_laser.execute_command(LaserCommand.DATA_UPDATE, product_type_data_base)
+                product_type = self.get_dv_value_with_name("product_type")
+                self.gkg_laser.execute_command(LaserCommand.DATA_UPDATE, product_type)
 
             self.gkg_laser.execute_command(LaserCommand.MARK_START)
-            self.wait_time(4)
+            self.wait_time(5)
             self.set_dv_value_with_name("laser_success", 1)
         else:
             self.set_dv_value_with_name("laser_success", 2)

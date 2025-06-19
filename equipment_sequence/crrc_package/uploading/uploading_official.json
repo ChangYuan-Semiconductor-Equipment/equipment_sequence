@@ -752,10 +752,6 @@
                     "dv_name": "label_print_state"
                 },
                 {
-                    "description": "请求是否激光打标",
-                    "operation_func": "laser_print_request"
-                },
-                {
                     "description": "写入激光打码logo类型",
                     "operation_func": "write_dv_value_snap7",
                     "address": 2206,

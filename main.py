@@ -1,6 +1,5 @@
-
-from equipment_sequence.infineon.infineon import Infineon
+from equipment_sequence.lin_zhong.system_solder.system_solder import SystemSolder
 
 
 if __name__ == '__main__':
-    Infineon()
+    SystemSolder()

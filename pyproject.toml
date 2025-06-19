@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "equipment-sequence"
-version = "1.1.0"
+version = "1.2.0"
 description = "设备业务逻辑"
 authors = ["LiuWei <183074632@qq.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
-passive-equipment = "1.22.4"
+passive-equipment = "2.5.0"
 
 
 [[tool.poetry.source]]
