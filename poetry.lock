@@ -903,14 +903,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-equipment"
-version = "2.5.0"
+version = "2.6.0"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_equipment-2.5.0-py3-none-any.whl", hash = "sha256:c33cf718c5831d69b1a2705b0523917f312a3416fb60a84201ebef73f71b6f0c"},
-    {file = "passive_equipment-2.5.0.tar.gz", hash = "sha256:41648bf23ccc32f7f9fd5a5a49c74b052c4fde92c37eef40e19048bd8076bbe4"},
+    {file = "passive_equipment-2.6.0-py3-none-any.whl", hash = "sha256:fe6471aacca5a5a0c6f238229be2de124179a1a6769aa0f329abf5a6abe29174"},
+    {file = "passive_equipment-2.6.0.tar.gz", hash = "sha256:817e9b14154e02c95ac37ffdcc86d16433f6cf29c55f04a26cdcdcb0eaf7f44e"},
 ]
 
 [package.dependencies]
@@ -1716,4 +1716,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "d1a045c5fc0f395469555bbc3e8f4c9baeca008a210c8434bdf66e8c64f42769"
+content-hash = "d101de95c668b8d10f109ec113176e61ebfc2885ce575de0ab17074190954038"
