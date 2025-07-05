@@ -700,14 +700,14 @@ reference = "mirrors"
 
 [[package]]
 name = "mysql-api"
-version = "1.5.0"
+version = "1.6.0"
 description = "封装mysql操作"
 optional = false
 python-versions = ">=3.11,<4.0"
 groups = ["main"]
 files = [
-    {file = "mysql_api-1.5.0-py3-none-any.whl", hash = "sha256:719aeb8975591854b7cecb63652e80ad27bebee708e0b085c4ad3d66b7f0f8ec"},
-    {file = "mysql_api-1.5.0.tar.gz", hash = "sha256:247eefacac0812b417527e9af4e0c03d72faa560b8f99f61a9b820aa5d9101da"},
+    {file = "mysql_api-1.6.0-py3-none-any.whl", hash = "sha256:60903bbe2e81f8d0cadd29596b3981e9510c927a83d108d585919ced6b79d4a9"},
+    {file = "mysql_api-1.6.0.tar.gz", hash = "sha256:4ae289db8208ddfb08e359bb85ef5c73fb23592774fcc471f8f5bd21e77c00d1"},
 ]
 
 [package.dependencies]
@@ -903,14 +903,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-equipment"
-version = "2.6.0"
+version = "2.8.0"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_equipment-2.6.0-py3-none-any.whl", hash = "sha256:fe6471aacca5a5a0c6f238229be2de124179a1a6769aa0f329abf5a6abe29174"},
-    {file = "passive_equipment-2.6.0.tar.gz", hash = "sha256:817e9b14154e02c95ac37ffdcc86d16433f6cf29c55f04a26cdcdcb0eaf7f44e"},
+    {file = "passive_equipment-2.8.0-py3-none-any.whl", hash = "sha256:ff37faa33b6263aecc7937d42c56d71ddbd6c5a97acd1262eb4cd9f818f2f709"},
+    {file = "passive_equipment-2.8.0.tar.gz", hash = "sha256:10d24798e7ce9ccbfa1ab57a2b2c865ad7f941da2afc830339f42b2b765b0f71"},
 ]
 
 [package.dependencies]
@@ -918,11 +918,11 @@ alembic = ">=1.14.0,<2.0.0"
 bar-tender-api = "1.0.0"
 cffi = ">=1.17.0,<2.0.0"
 hslcommunication = ">=1.2.0,<2.0.0"
-inovance-tag-cyg = "1.5.0"
+inovance-tag-cyg = ">=1.5.0"
 mitsubishi-plc = "1.4.0"
 modbus-api = "1.2.0"
 modbus-tk = ">=1.1.4,<2.0.0"
-mysql-api = "1.5.0"
+mysql-api = ">=1.6.0"
 openpyxl = ">=3.1.5,<4.0.0"
 pandas = ">=2.2.3,<3.0.0"
 pillow = ">=10.4.0,<11.0.0"
@@ -931,7 +931,7 @@ pymysql = ">=1.1.1,<2.0.0"
 python-snap7 = ">=2.0.2,<3.0.0"
 pythonnet = ">=3.0.3,<4.0.0"
 secsgem_cyg = "1.3.0"
-siemens-plc = "1.3.0"
+siemens-plc = ">=1.3.0"
 socket-cyg = "1.2.0"
 sqlalchemy = ">=2.0.36,<3.0.0"
 suds-community = ">=1.2.0,<2.0.0"
@@ -1716,4 +1716,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "d101de95c668b8d10f109ec113176e61ebfc2885ce575de0ab17074190954038"
+content-hash = "c1648cec1b46c3ff0eb2a91dce95585d5d2d06d33e2c674dd0ad5c86d2d980c8"
