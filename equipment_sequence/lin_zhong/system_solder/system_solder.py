@@ -60,9 +60,9 @@ class SystemSolder(HandlerPassive):
 
     def __init__(self):
         control_dict = {
-            "uploading_tag": TagCommunication("10.21.142.10"),
+            # "uploading_tag": TagCommunication("10.21.142.10"),
             "place_solder_sheet": CygSocketServerAsyncio("127.0.0.1", 1830),
-            "cutting_tag": TagCommunication("10.21.142.60")
+            # "cutting_tag": TagCommunication("10.21.142.60")
         }
         super().__init__(__file__, control_dict, open_flag=True)
 
@@ -90,6 +90,9 @@ class SystemSolder(HandlerPassive):
 
         self.config_instance.update_config_dv_value("circulate_name", circulate_name)
         self.config_instance.update_config_dv_value("product_type", product_type)
+
+        self.set_dv_value_with_name("is_eap_reply_lot_start", True)
+        self.config_instance.update_config_dv_value("is_eap_reply_lot_start", True)
 
     def _on_rcmd_keyCarrierReply(self, **kwargs):
         """eap监控到 2003 solder_carrier_in_request_uploading 回复回流焊托盘是否可以进站.
@@ -163,8 +166,17 @@ class SystemSolder(HandlerPassive):
         Returns:
             str: 返回 OK.
         """
+        self.set_dv_value_with_name("is_eap_reply_lot_start", False)
+        self.config_instance.update_config_dv_value("is_eap_reply_lot_start", False)
+
         self.set_dv_value_with_name("circulate_name", circulate_name)
         self.send_s6f11("new_circulate")
+        wait_time = 0
+        while not self.get_dv_value_with_name("is_eap_reply_lot_start"):
+            time.sleep(1)
+            wait_time += 1
+            if wait_time == 5:
+                return ""
         return "OK"
 
     def new_solder_sheet_info(self, solder_sheet_info: dict) -> str:

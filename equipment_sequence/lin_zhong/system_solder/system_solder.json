@@ -693,6 +693,12 @@
                 1
             ],
             "description": "焊接托盘进站写入穴位状态"
+        },
+        "is_eap_reply_lot_start": {
+            "dvid": 670,
+            "value_type": "BOOL",
+            "value": false,
+            "description": "eap 是否回复了工单信息"
         }
     },
     "remote_commands": {
