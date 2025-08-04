@@ -1,0 +1,1035 @@
+{
+    "secs_conf": {
+        "secs_ip": "127.0.0.1",
+        "secs_port": 5000,
+        "connect_mode": "PASSIVE",
+        "model_name": "CYG SECSGEM",
+        "software_version": "1.0.0",
+        "database_open": false
+    },
+    "status_variable": {
+        "current_control_state": {
+            "svid": 501,
+            "unit": "",
+            "value": 0,
+            "value_type": "BINARY",
+            "description": "当前控制状态"
+        },
+        "current_machine_state": {
+            "svid": 502,
+            "unit": "",
+            "value": 2,
+            "value_type": "BINARY",
+            "description": "当前运行状态"
+        },
+        "current_lot_name": {
+            "svid": 503,
+            "unit": "",
+            "value": "lot_name_liuwei",
+            "value_type": "ASCII",
+            "description": "当前工单名称"
+        },
+        "lot_quantity": {
+            "svid": 504,
+            "unit": "",
+            "value": 100,
+            "value_type": "UINT_4",
+            "description": "要生产的工单数量"
+        },
+        "current_recipe_name": {
+            "svid": 505,
+            "unit": "",
+            "value": "S6A",
+            "value_type": "ASCII",
+            "description": "当前配方名称"
+        },
+        "current_recipe_id": {
+            "svid": 506,
+            "unit": "",
+            "value": 1,
+            "value_type": "UINT_4",
+            "description": "当前配方id"
+        },
+        "pp_select_recipe_name": {
+            "svid": 507,
+            "unit": "",
+            "value": "",
+            "value_type": "ASCII",
+            "description": "要切换配方名称"
+        },
+        "pp_select_recipe_id": {
+            "svid": 508,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "要切换配方id"
+        },
+        "pp_select_state": {
+            "svid": 509,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "配方切换结果, 1: 切换成功, 2: 切换失败"
+        },
+        "do_quantity": {
+            "svid": 510,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "已经生产完成的产品数量"
+        },
+        "current_control_state_cutting": {
+            "svid": 5001,
+            "unit": "",
+            "value": 0,
+            "value_type": "BINARY",
+            "description": "下料机当前控制状态"
+        },
+        "current_machine_state_cutting": {
+            "svid": 5002,
+            "unit": "",
+            "value": 2,
+            "value_type": "BINARY",
+            "description": "下料机当前运行状态"
+        },
+        "current_lot_name_cutting": {
+            "svid": 5003,
+            "unit": "",
+            "value": "lot_name_liuwei",
+            "value_type": "ASCII",
+            "description": "下料机当前工单名称"
+        },
+        "lot_quantity_cutting": {
+            "svid": 5004,
+            "unit": "",
+            "value": 100,
+            "value_type": "UINT_4",
+            "description": "下料机要生产的工单数量"
+        },
+        "current_recipe_name_cutting": {
+            "svid": 5005,
+            "unit": "",
+            "value": "S6A",
+            "value_type": "ASCII",
+            "description": "下料机当前配方名称"
+        },
+        "current_recipe_id_cutting": {
+            "svid": 5006,
+            "unit": "",
+            "value": 1,
+            "value_type": "UINT_4",
+            "description": "下料机当前配方id"
+        },
+        "pp_select_recipe_name_cutting": {
+            "svid": 5007,
+            "unit": "",
+            "value": "",
+            "value_type": "ASCII",
+            "description": "下料机要切换配方名称"
+        },
+        "pp_select_recipe_id_cutting": {
+            "svid": 5008,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "下料机要切换配方id"
+        },
+        "pp_select_state_cutting": {
+            "svid": 5009,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "下料机配方切换结果, 1: 切换成功, 2: 切换失败"
+        },
+        "do_quantity_cutting": {
+            "svid": 5010,
+            "unit": "",
+            "value": 0,
+            "value_type": "UINT_4",
+            "description": "下料机已经生产完成的产品数量"
+        }
+    },
+    "equipment_constant": {
+        "occur_alarm_code": {
+            "ecid": 705,
+            "unit": "",
+            "default_value": 128,
+            "value_type": "UINT_4",
+            "description": "发生报警代码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "clear_alarm_code": {
+            "ecid": 706,
+            "unit": "",
+            "default_value": 0,
+            "value_type": "UINT_4",
+            "description": "清除报警代码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mes_heart_gap": {
+            "ecid": 707,
+            "unit": "",
+            "default_value": 2,
+            "value_type": "UINT_4",
+            "description": "MES心跳间隔时间",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "alarm_state": {
+            "ecid": 708,
+            "unit": "",
+            "default_value": 4,
+            "value_type": "UINT_4",
+            "description": "报警状态",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_user_name": {
+            "ecid": 709,
+            "unit": "",
+            "default_value": "cyg",
+            "value_type": "ASCII",
+            "description": "用户名",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_password": {
+            "ecid": 710,
+            "unit": "",
+            "default_value": "liuwei.520",
+            "value_type": "ASCII",
+            "description": "密码",
+            "min_value": 0,
+            "max_value": 0
+        },
+        "mysql_host": {
+            "ecid": 711,
+            "unit": "",
+            "default_value": "127.0.0.1",
+            "value_type": "ASCII",
+            "description": "数据库ip",
+            "min_value": 0,
+            "max_value": 0
+        }
+    },
+    "collection_events": {
+        "control_state_change": {
+            "ceid": 1001,
+            "description": "设备控制状态变化",
+            "link_reports": {
+                "1": [
+                    501
+                ]
+            }
+        },
+        "machine_state_change": {
+            "ceid": 1002,
+            "description": "设备运行状态变化",
+            "link_reports": {
+                "2": [
+                    502
+                ]
+            }
+        },
+        "carrier_in_request": {
+            "ceid": 1003,
+            "description": "带有产品的托盘请求进站",
+            "link_reports": {
+                "3": [
+                    602
+                ]
+            }
+        },
+        "product_in_carrier_request": {
+            "ceid": 1004,
+            "description": "补料产品请求放进托盘",
+            "link_reports": {
+                "4": [
+                    601
+                ]
+            }
+        },
+        "carrier_out_request": {
+            "ceid": 1005,
+            "description": "放了产品的托盘出站请求",
+            "link_reports": {
+                "5": [
+                    602, 604, 503
+                ]
+            }
+        },
+        "product_in_carrier": {
+            "ceid": 1006,
+            "description": "补料产品放进托盘",
+            "link_reports": {
+                "6": [
+                    602, 601, 603
+                ]
+            }
+        },
+        "end_lot": {
+            "ceid": 2001,
+            "description": "结束工单",
+            "link_reports": {
+                "21": [
+                    503, 504, 510
+                ]
+            }
+        },
+
+        "control_state_change_cutting": {
+            "ceid": 5001,
+            "description": "下料机设备控制状态变化",
+            "link_reports": {
+                "1": [
+                    5001
+                ]
+            }
+        },
+        "machine_state_change_cutting": {
+            "ceid": 5002,
+            "description": "下料机设备运行状态变化",
+            "link_reports": {
+                "2": [
+                    5002
+                ]
+            }
+        },
+        "carrier_in_request_cutting": {
+            "ceid": 5003,
+            "description": "带有产品的托盘请求进站",
+            "link_reports": {
+                "3": [
+                    5003
+                ]
+            }
+        },
+        "carrier_out_cutting": {
+            "ceid": 5006,
+            "description": "带有产品的托盘出站",
+            "link_reports": {
+                "6": [
+                    5003
+                ]
+            }
+        }
+    },
+    "data_values": {
+        "product_code": {
+            "dvid": 601,
+            "value_type": "ASCII",
+            "description": "产品码"
+        },
+        "carrier_code": {
+            "dvid": 602,
+            "value_type": "ASCII",
+            "description": "托盘码"
+        },
+        "carrier_index": {
+            "dvid": 603,
+            "value_type": "UINT_4",
+            "description": "在托盘中穴位"
+        },
+        "product_code_list": {
+            "dvid": 604,
+            "value_type": "ARRAY",
+            "base_value_type": "ASCII",
+            "description": "托盘里面的产品码列表"
+        },
+        "is_eap_reply_carrier_in": {
+            "dvid": 605,
+            "value_type": "BOOL",
+            "description": "eap是否回复了托盘进站请求"
+        },
+        "is_allow_carrier_in": {
+            "dvid": 606,
+            "value_type": "UINT_4",
+            "description": "eap是否允许托盘进站"
+        },
+        "is_eap_reply_product_in": {
+            "dvid": 607,
+            "value_type": "BOOL",
+            "description": "eap是否回复了产品进站请求"
+        },
+        "is_allow_product_in": {
+            "dvid": 608,
+            "value_type": "UINT_4",
+            "description": "eap是否允许产品进站"
+        },
+        "is_eap_reply_carrier_out": {
+            "dvid": 609,
+            "value_type": "BOOL",
+            "description": "eap是否回复了托盘出站请求"
+        },
+        "is_allow_carrier_out": {
+            "dvid": 610,
+            "value_type": "UINT_4",
+            "description": "eap是否允许托盘出站"
+        }
+    },
+    "remote_commands": {
+        "new_lot": {
+            "rcmd": "new_lot",
+            "params": [
+                "lot_name",
+                "lot_quantity"
+            ],
+            "description": "eap开工单"
+        },
+        "pp_select": {
+            "rcmd": "pp_select",
+            "params": [
+                "recipe_name"
+            ],
+            "description": "eap通知设备切换配方"
+        },
+        "carrier_in_reply": {
+            "rcmd": "carrier_in_reply",
+            "params": [
+                "is_allow_carrier_in",
+                "product_codes",
+                "product_states",
+                "lot_name"
+            ],
+            "description": "eap监控到1003 carrier_in_request事件后, eap回复带有产品的托盘是否可以进站, 同时回复里面的产品码和产品状态"
+        },
+        "product_in_reply": {
+            "rcmd": "product_in_reply",
+            "params": [
+                "is_allow_product",
+                "lot_name"
+            ],
+            "description": "eap监控到1004 product_in_carrier_request事件后, eap回复补料产品是否可以放进托盘"
+        },
+        "carrier_out_reply": {
+            "rcmd": "carrier_out_reply",
+            "params": [
+                "is_allow_carrier_out",
+                "lot_name"
+            ],
+            "description": "eap监控到1005 carrier_out_request事件后, eap回复带有产品的托盘是否可以出站"
+        },
+
+        "pp_select_cutting": {
+            "rcmd": "pp_select_cutting",
+            "params": [
+                "recipe_name"
+            ],
+            "description": "下料机eap通知设备切换配方"
+        },
+        "carrier_in_reply_cutting": {
+            "rcmd": "carrier_in_reply_cutting",
+            "params": [
+                "is_allow_carrier_in",
+                "product_codes",
+                "product_states",
+                "lot_name"
+            ],
+            "description": "eap监控到5003 carrier_in_request事件后, eap回复带有产品的托盘是否可以进站, 同时回复里面的产品码和产品状态"
+        }
+    },
+    "signal_address": {
+        "additional_modbus": {
+            "mes_heart": {
+                "description": "MES 心跳 2s 更新一次",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.heartBeat",
+                "data_type": "bool"
+            },
+            "control_state": {
+                "description": "实时监控设备的控制状态",
+                "address": "Application.gvl_OPMODE01_MES.MESbypass",
+                "data_type": "int"
+            },
+            "machine_state": {
+                "description": "实时监控设备的运行状态",
+                "address": "Application.gvl_OPMODE01_MES.plc2mes.geneal.deviceState",
+                "data_type": "int"
+            },
+            "alarm_id": {
+                "description": "出现报警时, 报警id",
+                "address": "Application.gvl_OPMODE01_MES.plc2mes.geneal.alarmCode",
+                "data_type": "string"
+            },
+            "current_recipe_id": {
+                "description": "当前配方id",
+                "address": "Application.gvl_OPMODE01_MES.RecipeID",
+                "data_type": "int"
+            },
+            "new_lot": {
+                "description": "开工单",
+                "call_backs": [
+                    {
+                        "description": "写入工单状态, 开工单成功",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Cmd",
+                        "data_type": "int",
+                        "value": 1
+                    },
+                    {
+                        "description": "等待一秒",
+                        "operation_func": "wait_one_second"
+                    },
+                    {
+                        "description": "写入EAP下发的工单号",
+                        "operation_func": "write_dv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Name",
+                        "data_type": "string",
+                        "sv_name": "circulate_name"
+                    },
+                    {
+                        "description": "写入EAP下发的工单数量",
+                        "operation_func": "write_sv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.QuantitySetting",
+                        "data_type": "int",
+                        "sv_name": "lot_quantity"
+                    },
+                    {
+                        "description": "写入工单状态, 允许运行",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Cmd",
+                        "data_type": "int",
+                        "value": 3
+                    }
+                ]
+            },
+            "end_lot": {
+                "description": "结工单",
+                "call_backs": [
+                    {
+                        "description": "写入工单状态2",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Cmd",
+                        "data_type": "int",
+                        "value": 2,
+                        "event_name": "end_lot"
+                    }
+                ]
+            },
+            "pp_select": {
+                "description": "切换配方",
+                "call_backs": [
+                    {
+                        "description": "写入要切换的配方id",
+                        "operation_func": "write_sv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.changeOver.recipeID",
+                        "data_type": "int",
+                        "sv_name": "pp_select_recipe_id"
+                    },
+                    {
+                        "description": "写入要切换的配方指令",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.changeOver.CMD",
+                        "data_type": "int",
+                        "value": 2
+                    },
+                    {
+                        "description": "清空 通知 plc 切换配方信号",
+                        "premise_address": "Application.gvl_OPMODE01_MES.plc2mes.changeOver.CMD",
+                        "premise_value": 2,
+                        "premise_data_type": "int",
+                        "premise_time_out": 3,
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.changeOver.CMD",
+                        "data_type": "int",
+                        "value": 0
+                    },
+                    {
+                        "description": "读取设备当前配方id",
+                        "operation_func": "read_update_sv",
+                        "address": "Application.gvl_OPMODE01_MES.RecipeID",
+                        "data_type": "int",
+                        "sv_name": "current_recipe_id"
+                    }
+                ]
+            },
+            "solder_carrier_in_request_uploading": {
+                "loop": true,
+                "description": "焊接托盘请求进入pinfin设备事件",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Resp",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "清除 eap 回复了焊接托盘进站请求标识",
+                        "operation_func": "clean_eap_reply",
+                        "dv_name": "is_eap_reply_carrier_in_uploading"
+                    },
+                    {
+                        "description": "读取焊接托盘码",
+                        "operation_func": "read_update_dv",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.TrackIn.code",
+                        "data_type": "string",
+                        "dv_name": "solder_carrier_code_in_pinfin",
+                        "event_name": "solder_carrier_in_request_uploading"
+                    },
+                    {
+                        "description": "焊接托盘出站删除此焊接托盘的所有信息",
+                        "operation_func": "delete_database_data_solder_carrier_out_cutting"
+                    },
+                    {
+                        "description": "等待 eap 回复焊接托盘是否允许进站",
+                        "operation_func": "wait_eap_reply",
+                        "dv_name": "is_eap_reply_carrier_in_uploading",
+                        "not_allow_dv_name": "is_allow_solder_carrier_in_uploading",
+                        "not_allow_dv_value": 1
+                    },
+                    {
+                        "description": "写入 eap 是否允许焊接托盘进站",
+                        "operation_func": "write_dv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Status",
+                        "data_type": "int",
+                        "dv_name": "is_allow_solder_carrier_in_uploading"
+                    },
+                    {
+                        "description": "写入焊接托盘的穴位状态",
+                        "operation_func": "write_multiple_dv_value_tag",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Mapping[$].status",
+                        "data_type": "int",
+                        "dv_name": "solder_carrier_index_states"
+                    },
+                    {
+                        "description": "MES 清空焊接托盘请求进入pinfin设备事件请求信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Resp",
+                        "data_type": "int",
+                        "value": -1
+                    }
+                ]
+            },
+            "product_in_request": {
+                "loop": true,
+                "description": "上料机基板产品请求进站事件",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.Interlock[2].Resp",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "清除 eap 回复了基板产品进站请求标识",
+                        "operation_func": "clean_eap_reply",
+                        "dv_name": "is_eap_reply_product_in_uploading"
+                    },
+                    {
+                        "description": "读取基板产品码",
+                        "operation_func": "read_update_dv",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.Interlock[2].code",
+                        "data_type": "string",
+                        "dv_name": "product_code_pinfin",
+                        "event_name": "product_in_request"
+                    },
+                    {
+                        "description": "等待 eap 回复基板产品进站请求",
+                        "operation_func": "wait_eap_reply",
+                        "dv_name": "is_eap_reply_product_in_uploading",
+                        "not_allow_dv_name": "is_allow_product_in_uploading",
+                        "not_allow_dv_value": 2
+                    },
+                    {
+                        "description": "写入 eap 是否允许基板产品进站",
+                        "operation_func": "write_dv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.Interlock[2].Status",
+                        "data_type": "int",
+                        "dv_name": "is_allow_product_in_uploading"
+                    },
+                    {
+                        "description": "MES 清空上料机基板产品请求进站事件请求信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.Interlock[2].Resp",
+                        "data_type": "int",
+                        "value": -1
+                    }
+                ]
+            },
+            "solder_carrier_out_uploading": {
+                "loop": true,
+                "description": "上料机焊接托盘流出",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackOut",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "设置焊接托盘从上料机出去的时间",
+                        "operation_func": "set_time_dv_value",
+                        "dv_name": "solder_carrier_out_time_uploading"
+                    },
+                    {
+                        "description": "读取上料机焊接托盘出站时的焊接托盘码",
+                        "operation_func": "read_update_dv",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.TrackOut.Result[1].code[0]",
+                        "data_type": "string",
+                        "dv_name": "solder_carrier_code_out_uploading"
+                    },
+                    {
+                        "description": "读取上料机焊接托盘出站时里面所有的基板产品码",
+                        "operation_func": "read_multiple_update_dv_tag",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.TrackOut.Result[$].code[5]",
+                        "count_num": 2,
+                        "data_type": "string",
+                        "dv_name": "product_code_list_uploading"
+                    },
+                    {
+                        "description": "读取上料机焊接托盘出站时里面所有的治具码",
+                        "operation_func": "read_multiple_update_dv_tag",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.TrackOut.Result[1].code[7]",
+                        "count_num": 2,
+                        "data_type": "string",
+                        "dv_name": "solder_jig_code_list",
+                        "event_name": "solder_carrier_out_uploading"
+                    },
+                    {
+                        "description": "MES 清空上料机焊接托盘流出信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackOut",
+                        "data_type": "int",
+                        "value": -1
+                    },
+                    {
+                        "description": "保存焊接托盘从上料机出站数据",
+                        "operation_func": "save_data_to_database_solder_carrier_out_uploading",
+                        "table_model_class_name": "Uploading"
+                    }
+                ]
+            },
+            "key_carrier_out_uploading": {
+                "loop": true,
+                "description": "上料机键合托盘流出",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.PartDone[2]",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "设置键合托盘从上料设备出去的时间",
+                        "operation_func": "set_time_dv_value",
+                        "dv_name": "key_carrier_out_time_uploading"
+                    },
+                    {
+                        "description": "读取上料设备键合托盘出站时的码",
+                        "operation_func": "read_update_dv",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.partDone[2].code",
+                        "data_type": "string",
+                        "dv_name": "key_carrier_code_out_uploading",
+                        "event_name": "key_carrier_out_uploading"
+                    },
+                    {
+                        "description": "MES 清空上料机键合托盘流出信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.PartDone[2]",
+                        "data_type": "int",
+                        "value": -1
+                    }
+                ]
+            },
+            "ng_product_upload": {
+                "loop": true,
+                "description": "NG 产品上传",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.PartDone[1]",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "读取NG产品码",
+                        "operation_func": "read_update_dv",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.partDone[1].code",
+                        "data_type": "string",
+                        "dv_name": "product_code_ng",
+                        "event_name": "ng_product_upload"
+                    },
+                    {
+                        "description": "MES 清空上料机焊接托盘流出信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.PartDone[1]",
+                        "data_type": "int",
+                        "value": -1
+                    }
+                ]
+            }
+        },
+        "cutting_modbus": {
+            "mes_heart": {
+                "description": "MES 心跳 2s 更新一次",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.heartBeat",
+                "data_type": "bool"
+            },
+            "control_state": {
+                "description": "实时监控设备的控制状态",
+                "address": "Application.gvl_OPMODE01_MES.MESbypass",
+                "data_type": "int"
+            },
+            "machine_state": {
+                "description": "实时监控设备的运行状态",
+                "address": "Application.gvl_OPMODE01_MES.plc2mes.geneal.deviceState",
+                "data_type": "int"
+            },
+            "alarm_id": {
+                "description": "出现报警时, 报警id",
+                "address": "Application.gvl_OPMODE01_MES.plc2mes.geneal.alarmCode",
+                "data_type": "string"
+            },
+            "current_recipe_id": {
+                "description": "当前配方id",
+                "address": "Application.gvl_OPMODE01_MES.RecipeID",
+                "data_type": "int"
+            },
+            "new_lot": {
+                "description": "开工单",
+                "call_backs": [
+                    {
+                        "description": "写入工单状态, 开工单成功",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Cmd",
+                        "data_type": "int",
+                        "value": 1
+                    },
+                    {
+                        "description": "等待一秒",
+                        "operation_func": "wait_one_second"
+                    },
+                    {
+                        "description": "写入EAP下发的工单号",
+                        "operation_func": "write_dv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Name",
+                        "data_type": "string",
+                        "sv_name": "circulate_name"
+                    },
+                    {
+                        "description": "写入EAP下发的工单数量",
+                        "operation_func": "write_sv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.QuantitySetting",
+                        "data_type": "int",
+                        "sv_name": "lot_quantity"
+                    },
+                    {
+                        "description": "写入工单状态, 允许运行",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Cmd",
+                        "data_type": "int",
+                        "value": 3
+                    }
+                ]
+            },
+            "end_lot": {
+                "description": "结工单",
+                "call_backs": [
+                    {
+                        "description": "写入工单状态2",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Cmd",
+                        "data_type": "int",
+                        "value": 2,
+                        "event_name": "end_lot"
+                    }
+                ]
+            },
+            "pp_select": {
+                "description": "切换配方",
+                "call_backs": [
+                    {
+                        "description": "写入要切换的配方id",
+                        "operation_func": "write_sv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.changeOver.recipeID",
+                        "data_type": "int",
+                        "sv_name": "pp_select_recipe_id"
+                    },
+                    {
+                        "description": "写入要切换的配方指令",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.changeOver.CMD",
+                        "data_type": "int",
+                        "value": 2
+                    },
+                    {
+                        "description": "清空 通知 plc 切换配方信号",
+                        "premise_address": "Application.gvl_OPMODE01_MES.plc2mes.changeOver.CMD",
+                        "premise_value": 2,
+                        "premise_data_type": "int",
+                        "premise_time_out": 3,
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.changeOver.CMD",
+                        "data_type": "int",
+                        "value": 0
+                    },
+                    {
+                        "description": "读取设备当前配方id",
+                        "operation_func": "read_update_sv",
+                        "address": "Application.gvl_OPMODE01_MES.RecipeID",
+                        "data_type": "int",
+                        "sv_name": "current_recipe_id"
+                    }
+                ]
+            },
+            "solder_carrier_in_cutting": {
+                "loop": true,
+                "description": "下料设备焊接托盘流进来",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Resp",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "设置焊接托盘从下料设备进来的时间",
+                        "operation_func": "set_time_dv_value",
+                        "dv_name": "solder_carrier_in_time_cutting"
+                    },
+                    {
+                        "description": "读取下料设备焊接托盘进站时的焊接托盘码",
+                        "operation_func": "read_update_dv",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.TrackIn.code",
+                        "data_type": "string",
+                        "dv_name": "solder_carrier_code_in_cutting",
+                        "event_name": "solder_carrier_in_cutting"
+                    },
+                    {
+                        "description": "下料机焊接托盘进站时从数据库获取数据设置 dv",
+                        "operation_func": "set_dv_from_database_solder_carrier_in_cutting",
+                        "table_model_class_name": "Bridge"
+                    },
+                    {
+                        "description": "写入工单号",
+                        "operation_func": "write_dv_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.geneal.Lot.Name",
+                        "data_type": "string",
+                        "dv_name": "circulate_name"
+                    },
+                    {
+                        "description": "写入焊接托盘是否可以进站",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Status",
+                        "data_type": "int",
+                        "value": 1
+                    },
+                    {
+                        "description": "写入焊接托盘上所有产品状态",
+                        "operation_func": "write_multiple_dv_value_tag",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Mapping[$].status",
+                        "data_type": "int",
+                        "dv_name": "product_state_list_cutting_write"
+                    },
+                    {
+                        "description": "写入焊接托盘上所有产品码",
+                        "operation_func": "write_multiple_dv_value_tag",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Mapping[$].code",
+                        "data_type": "string",
+                        "dv_name": "product_code_list_cutting_write"
+                    },
+                    {
+                        "description": "MES 清空下料设备焊接托盘流出信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackIn.Resp",
+                        "data_type": "int",
+                        "value": -1
+                    }
+                ]
+            },
+            "solder_carrier_out_cutting": {
+                "loop": true,
+                "description": "下料设备焊接托盘流出",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.PartDone[1]",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "设置焊接托盘从下料设备出去的时间",
+                        "operation_func": "set_time_dv_value",
+                        "dv_name": "solder_carrier_out_time_cutting"
+                    },
+                    {
+                        "description": "读取下料设备焊接托盘出站时的焊接托盘码",
+                        "operation_func": "read_update_dv",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.partDone[1].code",
+                        "data_type": "string",
+                        "dv_name": "solder_carrier_code_out_cutting",
+                        "event_name": "solder_carrier_out_cutting"
+                    },
+                    {
+                        "description": "MES 清空下料设备焊接托盘流出信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.PartDone[1]",
+                        "data_type": "int",
+                        "value": -1
+                    },
+                    {
+                        "description": "焊接托盘从下料设备出站保存进出站时间",
+                        "operation_func": "save_data_to_database_solder_carrier_out_cutting",
+                        "table_model_class_name": "Cutting"
+                    },
+                    {
+                        "description": "焊接托盘从下料设备出站保存此焊接托盘的生命周期",
+                        "operation_func": "save_data_to_database_records",
+                        "table_model_class_name": "Records"
+                    }
+                ]
+            },
+            "key_carrier_in_request": {
+                "loop": true,
+                "description": "下料机键合托盘请求进站",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.Interlock[2].Resp",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "写入键合托盘是否可以进站",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.Interlock[2].Status",
+                        "data_type": "int",
+                        "value": 1
+                    },
+                    {
+                        "description": "MES 清空上料机键合托盘流出信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.Interlock[2].Resp",
+                        "data_type": "int",
+                        "value": -1
+                    }
+                ]
+            },
+            "key_carrier_out_cutting": {
+                "loop": true,
+                "description": "下料机键合托盘流出",
+                "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackOut",
+                "data_type": "int",
+                "value": 1,
+                "call_backs": [
+                    {
+                        "description": "设置键合托盘从下料设备出去的时间",
+                        "operation_func": "set_time_dv_value",
+                        "dv_name": "key_carrier_out_time_cutting"
+                    },
+                    {
+                        "description": "读取下料设备键合托盘出站时的键合托盘码",
+                        "operation_func": "read_update_dv",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.TrackOut.Result[1].code[1]",
+                        "data_type": "string",
+                        "dv_name": "key_carrier_code_out_cutting"
+                    },
+                    {
+                        "description": "读取下料设备键合托盘出站时所有的产品吗",
+                        "operation_func": "read_multiple_update_dv_tag",
+                        "address": "Application.gvl_OPMODE01_MES.plc2mes.TrackOut.Result[$].code[2]",
+                        "data_type": "string",
+                        "count_num": 2,
+                        "dv_name": "product_code_list_cutting"
+                    },
+                    {
+                        "description": "MES 清空上料机键合托盘流出信号, 写入 -1",
+                        "operation_func": "write_specify_value",
+                        "address": "Application.gvl_OPMODE01_MES.mes2plc.TrackOut",
+                        "data_type": "int",
+                        "value": -1
+                    },
+                    {
+                        "description": "下料机键合托盘出站时从数据库获取基板上的半桥数据设置 dv",
+                        "operation_func": "set_dv_from_database_key_carrier_out_cutting",
+                        "table_model_class_name": "Bridge",
+                        "dv_name": "product_code_list_cutting",
+                        "event_name": "key_carrier_out_cutting"
+                    }
+                ]
+            }
+        }
+    },
+    "all_recipe": {
+        "1": "S6A",
+        "2": "",
+        "3": ""
+    }
+}
