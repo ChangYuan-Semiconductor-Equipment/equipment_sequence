@@ -519,14 +519,14 @@ reference = "mirrors"
 
 [[package]]
 name = "inovance-tag-cyg"
-version = "1.7.0"
+version = "1.8.0"
 description = "inovance tag communication"
 optional = false
 python-versions = ">=3.7,<3.13"
 groups = ["main"]
 files = [
-    {file = "inovance_tag_cyg-1.7.0-py3-none-any.whl", hash = "sha256:562020ca297141c30da56d58cb7a9d78ebd8ffaffed39eacf7fe5dcbd182ac3d"},
-    {file = "inovance_tag_cyg-1.7.0.tar.gz", hash = "sha256:bba98be1b9b3a47a8b4ebfcebbd6f79fb27c398ea9204f8278fc5028ca07d13d"},
+    {file = "inovance_tag_cyg-1.8.0-py3-none-any.whl", hash = "sha256:f7efd214d30cbb65339070e36eee3a9cd5f4c86e3006c9bf1aa27fb772365d91"},
+    {file = "inovance_tag_cyg-1.8.0.tar.gz", hash = "sha256:2aec2e1151751bc16140d448caf9da3391880bdd5c9c015a0a8e878531c40f02"},
 ]
 
 [package.dependencies]
@@ -899,14 +899,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-equipment"
-version = "2.11.4"
+version = "2.11.5"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_equipment-2.11.4-py3-none-any.whl", hash = "sha256:b678ce52b1a97d3fc6d03eed7a8e5ff8fa4a1278409cd71a5fb9746654251258"},
-    {file = "passive_equipment-2.11.4.tar.gz", hash = "sha256:bfa21a809f9b1791da27d236ad21a0f7f1fafaf16e71ff2127621f8c6729df94"},
+    {file = "passive_equipment-2.11.5-py3-none-any.whl", hash = "sha256:b9f2dfca8cf1e45067ac193383dbec9359d2a208fc32b116d4ac9268ad0d80fc"},
+    {file = "passive_equipment-2.11.5.tar.gz", hash = "sha256:6b88038c3d9b764812c5bcc454adbab5f12986a643614347c89a334287af1c97"},
 ]
 
 [package.dependencies]
@@ -915,7 +915,7 @@ bar-tender-api = ">=1.0.0"
 cffi = ">=1.17.0,<2.0.0"
 gkg-laser = ">=1.0.0"
 hslcommunication = ">=1.2.0,<2.0.0"
-inovance-tag-cyg = ">=1.5.0"
+inovance-tag-cyg = ">=1.8.0"
 mitsubishi-plc = ">=1.4.0"
 modbus-api = ">=1.3.0"
 modbus-tk = ">=1.1.4,<2.0.0"

@@ -45,6 +45,7 @@
     PC -> MES: {"clean_alarm": {"alarm_id": 100,"alarm_text":"this is alarm content"}}
     MES -> PC: OK
 """
+import asyncio
 import json
 import time
 
@@ -546,3 +547,21 @@ class SystemSolder(HandlerPassive):
             self.config_instance.update_config_sv_value("current_recipe_name", current_recipe_name)
 
         return status_variable.value_type(status_variable.value)
+
+    async def liuwei(self, state):
+        self.yiyi = False
+        print(f"liuwei:{state}")
+        await self.send_data_to_socket_client(self.control_instance_dict["place_solder_sheet"], "127.0.0.1", "ssss")
+        wait_time = 0
+        while self.yiyi is False:
+            await asyncio.sleep(1)
+            print(f"等待 {wait_time} s")
+            wait_time += 1
+            if wait_time == 30:
+                break
+        return "kkkk"
+
+    async def jiali(self, state):
+        print(f"jiali:{state}")
+        self.yiyi = True
+        return "ssssss"
