@@ -899,14 +899,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-equipment"
-version = "2.11.5"
+version = "3.0.1"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_equipment-2.11.5-py3-none-any.whl", hash = "sha256:b9f2dfca8cf1e45067ac193383dbec9359d2a208fc32b116d4ac9268ad0d80fc"},
-    {file = "passive_equipment-2.11.5.tar.gz", hash = "sha256:6b88038c3d9b764812c5bcc454adbab5f12986a643614347c89a334287af1c97"},
+    {file = "passive_equipment-3.0.1-py3-none-any.whl", hash = "sha256:f50c4fbe50f71bcee1a58323d6083d804bf3ced9b946b698dd545d4e7221909a"},
+    {file = "passive_equipment-3.0.1.tar.gz", hash = "sha256:994977c413dbc0e2a3e67eb1e751b458070bc4d5eb10574c3086e2dd1c5801dc"},
 ]
 
 [package.dependencies]
@@ -929,7 +929,7 @@ python-snap7 = ">=2.0.2,<3.0.0"
 pythonnet = ">=3.0.3,<4.0.0"
 secsgem_cyg = ">=1.3.0"
 siemens-plc = ">=1.3.0"
-socket-cyg = ">=1.2.0"
+socket-cyg = ">=1.4.0"
 sqlalchemy = ">=2.0.36,<3.0.0"
 suds-community = ">=1.2.0,<2.0.0"
 websockets = ">=14.1,<15.0"
@@ -1379,14 +1379,14 @@ reference = "mirrors"
 
 [[package]]
 name = "secsgem-cyg"
-version = "1.3.0"
+version = "1.4.0"
 description = "secsgem 封装"
 optional = false
 python-versions = ">=3.10,<3.13"
 groups = ["main"]
 files = [
-    {file = "secsgem_cyg-1.3.0-py3-none-any.whl", hash = "sha256:85b1c3ab24ffa807d9fd053c91c5486c7c83b0aad0d72f75de1ef802e9fd7113"},
-    {file = "secsgem_cyg-1.3.0.tar.gz", hash = "sha256:02de866700e1587595715bb0fbca0dbc0abff793f4818f9d3acf4c0788e614b3"},
+    {file = "secsgem_cyg-1.4.0-py3-none-any.whl", hash = "sha256:6075c902a384446f90d3f15738c52923bf0680de3cfcb878e555ffc456042a03"},
+    {file = "secsgem_cyg-1.4.0.tar.gz", hash = "sha256:85413932ba0b908a7efe7c0a6a1da1b64fa5fb551b3aa9bfbc0dc0a3db214245"},
 ]
 
 [package.dependencies]
@@ -1436,14 +1436,14 @@ reference = "mirrors"
 
 [[package]]
 name = "socket-cyg"
-version = "1.3.0"
+version = "1.4.0"
 description = "CYG socket 封装"
 optional = false
 python-versions = ">=3.8,<=3.13"
 groups = ["main"]
 files = [
-    {file = "socket_cyg-1.3.0-py3-none-any.whl", hash = "sha256:d4e65fa47e7085ff422b590810715a2bc79394e6909b67268c94bdb3070604e4"},
-    {file = "socket_cyg-1.3.0.tar.gz", hash = "sha256:a91f928fc7b26286db44cdf147682456a826e170eafd9263d90358c850048438"},
+    {file = "socket_cyg-1.4.0-py3-none-any.whl", hash = "sha256:84178dc0d81f5f9af0eb332c378bcd8aa8a83f9dc98e506f3dd00bc70e05d8ee"},
+    {file = "socket_cyg-1.4.0.tar.gz", hash = "sha256:a9081ba6d03696300cecdc381a98a0c1f0ad769607b46ec56b5133791a799d3a"},
 ]
 
 [package.source]
@@ -1733,4 +1733,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "11bd3b3c8cb786900875ba2e5847125fb7efa8e7087cfd83bfff7f03e24d85f1"
+content-hash = "6088a0956fd83e1f5246a2b32c15148ff3735fefdd0e7d50ca91c04bf52735b4"
