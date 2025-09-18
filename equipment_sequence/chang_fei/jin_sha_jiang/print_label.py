@@ -13,7 +13,11 @@ class PrintLabel(HandlerPassive):
             "upload_snap7": S7PLC("192.168.180.180")
         }
         super().__init__(control_dict)
-        self.mysql = MySQLDatabase("cyg", "liuwei.520")
+        self.mysql = MySQLDatabase(
+            self.get_ec_value_with_name("mysql_user_name"),
+            self.get_ec_value_with_name("mysql_password"),
+            host=self.get_ec_value_with_name("mysql_host")
+        )
 
     def get_carrier_info(self, call_back: dict):
         """托盘进站时查询托盘里面的产品信息."""

@@ -13,8 +13,11 @@ class Screw(HandlerPassive):
             "upload_snap7": S7PLC("192.168.180.190")
         }
         super().__init__(control_dict)
-        self.mysql = MySQLDatabase("cyg", "liuwei.520")
-
+        self.mysql = MySQLDatabase(
+            self.get_ec_value_with_name("mysql_user_name"),
+            self.get_ec_value_with_name("mysql_password"),
+            host=self.get_ec_value_with_name("mysql_host")
+        )
     def get_carrier_info_front(self, call_back: dict):
         """前工位托盘进站时查询托盘里面的产品信息."""
         self.logger.info("call back 信息是: %s", json.dumps(call_back))
