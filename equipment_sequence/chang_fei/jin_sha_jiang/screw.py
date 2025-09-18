@@ -18,39 +18,49 @@ class Screw(HandlerPassive):
     def get_carrier_info_front(self, call_back: dict):
         """前工位托盘进站时查询托盘里面的产品信息."""
         self.logger.info("call back 信息是: %s", json.dumps(call_back))
-        carrier_code = self.get_dv_value_with_id(601)
+        carrier_code = self.get_dv_value_with_name("carrier_code_in_front")
         carrier_info_list = self.mysql.query_data(table_model.CarrierInfo, {"carrier_code": carrier_code})
         if carrier_info_list:
-            self.set_dv_value_with_id(605, 1)
-
+            is_allow_carrier_in_front = 1
             carrier_info = carrier_info_list[0]
-            self.set_dv_value_with_id(613, [carrier_info.get("product_code_1"), carrier_info.get("product_code_2")])
-            self.set_dv_value_with_id(615, [carrier_info.get("frame_code_1"), carrier_info.get("frame_code_2")])
-            self.set_dv_value_with_id(617, [carrier_info.get("product_state_1"), carrier_info.get("product_state_2")])
+            product_code_list_front_reply = [carrier_info.get("product_code_1"), carrier_info.get("product_code_2")]
+            frame_code_list_front_reply = [carrier_info.get("frame_code_1"), carrier_info.get("frame_code_2")]
+            product_state_list_front_reply = [carrier_info.get("product_state_1"), carrier_info.get("product_state_2")]
         else:
-            self.set_dv_value_with_id(605, 2)
-            self.set_dv_value_with_id(613, ["", ""])
-            self.set_dv_value_with_id(615, ["", ""])
-            self.set_dv_value_with_id(617, [2, 2])
+            is_allow_carrier_in_front = 2
+            product_code_list_front_reply = ["", ""]
+            frame_code_list_front_reply = ["", ""]
+            product_state_list_front_reply = [2, 2]
 
+        self.set_dv_value_with_name("is_allow_carrier_in_front", is_allow_carrier_in_front)
+        self.set_dv_value_with_name("product_code_list_front_reply", product_code_list_front_reply)
+        self.set_dv_value_with_name("frame_code_list_front_reply", frame_code_list_front_reply)
+        self.set_dv_value_with_name("product_state_list_front_reply", product_state_list_front_reply)
 
     def get_carrier_info_back(self, call_back: dict):
         """后工位托盘进站时查询托盘里面的产品信息."""
         self.logger.info("call back 信息是: %s", json.dumps(call_back))
-        carrier_code = self.get_dv_value_with_id(602)
+        carrier_code = self.get_dv_value_with_name("carrier_code_in_back")
         carrier_info_list = self.mysql.query_data(table_model.CarrierInfo, {"carrier_code": carrier_code})
         if carrier_info_list:
-            self.set_dv_value_with_id(606, 1)
-
+            is_allow_carrier_in_back = 1
             carrier_info = carrier_info_list[0]
-            self.set_dv_value_with_id(614, [carrier_info.get("product_code_1"), carrier_info.get("product_code_2")])
-            self.set_dv_value_with_id(616, [carrier_info.get("frame_code_1"), carrier_info.get("frame_code_2")])
-            self.set_dv_value_with_id(618, [carrier_info.get("product_state_1"), carrier_info.get("product_state_2")])
+            product_code_list_back_reply = [carrier_info.get("product_code_1"), carrier_info.get("product_code_2")]
+            frame_code_list_back_reply = [carrier_info.get("frame_code_1"), carrier_info.get("frame_code_2")]
+            product_state_list_back_reply = [carrier_info.get("product_state_1"), carrier_info.get("product_state_2")]
         else:
-            self.set_dv_value_with_id(606, 2)
-            self.set_dv_value_with_id(614, ["", ""])
-            self.set_dv_value_with_id(616, ["", ""])
-            self.set_dv_value_with_id(618, [2, 2])
+            is_allow_carrier_in_back = 2
+            product_code_list_back_reply = ["", ""]
+            frame_code_list_back_reply = ["", ""]
+            product_state_list_back_reply = [2, 2]
+
+        self.set_dv_value_with_name("is_allow_carrier_in_back", is_allow_carrier_in_back)
+        self.set_dv_value_with_name("product_code_list_back_reply", product_code_list_back_reply)
+        self.set_dv_value_with_name("frame_code_list_back_reply", frame_code_list_back_reply)
+        self.set_dv_value_with_name("product_state_list_back_reply", product_state_list_back_reply)
+
+
+
 
 
 
