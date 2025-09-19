@@ -12,7 +12,7 @@ class Screw(HandlerPassive):
         control_dict = {
             "upload_snap7": S7PLC("192.168.180.190")
         }
-        super().__init__(control_dict, open_flag=True)
+        super().__init__(control_dict, open_flag=False)
         self.mysql = MySQLDatabase(
             self.get_ec_value_with_name("mysql_user_name"),
             self.get_ec_value_with_name("mysql_password"),
@@ -72,9 +72,3 @@ class Screw(HandlerPassive):
         self.set_dv_value_with_name("product_code_list_back_reply", ["product_1", "product_2"])
         self.set_dv_value_with_name("frame_code_list_back_reply", ["frame_1", "frame_2"])
         self.set_dv_value_with_name("product_state_list_back_reply", [2, 2])
-
-
-
-
-
-
