@@ -14,7 +14,7 @@ class UploadAddGlue(HandlerPassive):
         super().__init__(control_dict)
 
     def save_carrier_info(self, call_back: dict):
-        self.logger.info("call back 信息是: %s", json.dumps(call_back))
+        self.logger.info("call back 信息是: %s", call_back)
         carrier_code = self.get_dv_value_with_name("carrier_code_out")
         product_code_list = self.get_dv_value_with_name("product_code_list")
         product_state_list = self.get_dv_value_with_name("product_state_list")
