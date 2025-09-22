@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
-passive-equipment = ">=3.2.1"
+passive-equipment = ">=3.3.0"
 
 
 [[tool.poetry.source]]
