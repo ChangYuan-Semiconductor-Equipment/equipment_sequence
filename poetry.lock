@@ -519,14 +519,14 @@ reference = "mirrors"
 
 [[package]]
 name = "inovance-tag-cyg"
-version = "1.8.0"
+version = "1.8.1"
 description = "inovance tag communication"
 optional = false
 python-versions = ">=3.7,<3.13"
 groups = ["main"]
 files = [
-    {file = "inovance_tag_cyg-1.8.0-py3-none-any.whl", hash = "sha256:f7efd214d30cbb65339070e36eee3a9cd5f4c86e3006c9bf1aa27fb772365d91"},
-    {file = "inovance_tag_cyg-1.8.0.tar.gz", hash = "sha256:2aec2e1151751bc16140d448caf9da3391880bdd5c9c015a0a8e878531c40f02"},
+    {file = "inovance_tag_cyg-1.8.1-py3-none-any.whl", hash = "sha256:dc328e1dec98f2004f717f2f6fa3c65007a24d6e5beda654b4ac5b82dbc5d800"},
+    {file = "inovance_tag_cyg-1.8.1.tar.gz", hash = "sha256:f6fcede418c8d0080cc891ce2349d373dfe62eacf990d1280368617981d14156"},
 ]
 
 [package.dependencies]
@@ -899,14 +899,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-equipment"
-version = "3.5.0"
+version = "3.7.0"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_equipment-3.5.0-py3-none-any.whl", hash = "sha256:86aa10e306a43e562d0449f05f66356d5d18a04d8d47f9349b448dbd91cd6103"},
-    {file = "passive_equipment-3.5.0.tar.gz", hash = "sha256:d5f4c3673b84a9257945148c038ff477c18b6fc2664ec1e84290a3112afb7325"},
+    {file = "passive_equipment-3.7.0-py3-none-any.whl", hash = "sha256:88d63136c31c9e96e8f48bea8b68d7e7533f8cf1fe1a77da587fd0d75322b43b"},
+    {file = "passive_equipment-3.7.0.tar.gz", hash = "sha256:93bbf50c1321a42cc8a58978d101a8cac2badd38e70e8f45c44549403d430aa0"},
 ]
 
 [package.dependencies]
@@ -915,7 +915,7 @@ bar-tender-api = ">=1.0.0"
 cffi = ">=1.17.0,<2.0.0"
 gkg-laser = ">=1.0.0"
 hslcommunication = ">=1.2.0,<2.0.0"
-inovance-tag-cyg = ">=1.8.0"
+inovance-tag-cyg = ">=1.8.1"
 mitsubishi-plc = ">=1.4.0"
 modbus-api = ">=1.3.0"
 modbus-tk = ">=1.1.4,<2.0.0"
@@ -1733,4 +1733,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "fe36fb0e781272526941e2e254a687f7dd7525600eca567c708f8ebbecde66af"
+content-hash = "f8bf0afc80037d46d7cc9e5758b56db1f79b8e07d2aecbc764762d18d368175a"
