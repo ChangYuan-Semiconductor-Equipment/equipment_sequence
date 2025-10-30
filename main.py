@@ -1,5 +1,5 @@
-from equipment_sequence.chang_fei.jin_sha_jiang.print_label import PrintLabel
+from equipment_sequence.infineon.cell_control import CellControl
 
 
 if __name__ == '__main__':
-    PrintLabel()
+    CellControl()
