@@ -62,11 +62,35 @@ class CellControl(HostPassive):
             self.set_sv_value_with_name("ControlState", current_control_state)
             self.send_s6f11("ControlStateChange")
             if current_control_state == 3:
-                self.send_s6f11("EquipmentOFFLINE")
+                self.send_s6f11("EquipmentOffline")
             elif current_control_state == 7:
                 self.send_s6f11("ControlStateOnlineLocal")
             elif current_control_state == 8:
                 self.send_s6f11("ControlStateOnlineRemote")
+
+    def _on_event_EquipmentOffline(self, ce_id: int, reports: list):
+        """接收到设备上报的 1003 设备离线事件.
+
+        Args:
+            ce_id: 事件 id.
+            reports: 事件参数.
+        """
+
+    def _on_event_ControlStateOnlineLocal(self, ce_id: int, reports: list):
+        """接收到设备上报的 1004 控制状态变为 OnlineLocal 事件.
+
+        Args:
+            ce_id: 事件 id.
+            reports: 事件参数.
+        """
+
+    def _on_event_ControlStateOnlineRemote(self, ce_id: int, reports: list):
+        """接收到设备上报的 1004 控制状态变为 OnlineRemote 事件.
+
+        Args:
+            ce_id: 事件 id.
+            reports: 事件参数.
+        """
 
     def _on_event_ProcessStateChange(self, ce_id: int, reports: list):
         """接收到设备上报的 1002 控运行状态变化事件.
