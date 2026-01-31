@@ -1,5 +1,5 @@
-from equipment_sequence.cha_zheng.cha_zheng import ChaZheng
+from equipment_sequence.example import Example
 
 
 if __name__ == '__main__':
-    ChaZheng("127.0.0.1", "big_beauty")
+    Example("127.0.0.1", "big_beauty")
