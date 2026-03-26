@@ -764,14 +764,14 @@ reference = "mirrors"
 
 [[package]]
 name = "mysql-api"
-version = "1.11.0"
+version = "1.12.0"
 description = "封装mysql操作"
 optional = false
 python-versions = ">=3.11,<4.0"
 groups = ["main"]
 files = [
-    {file = "mysql_api-1.11.0-py3-none-any.whl", hash = "sha256:6b2d4016e153c1fcfcabe2f6c41990ff9cb75c24626d24214ce7220434b07968"},
-    {file = "mysql_api-1.11.0.tar.gz", hash = "sha256:f137b8f927b97b9cf8c6d0cdb500a5299ff2d1292ee5eb09fa0e318e72789c6c"},
+    {file = "mysql_api-1.12.0-py3-none-any.whl", hash = "sha256:29eed2bd031aa84f05579ff84dbe081d1bd78b821d0c7b3b2b43ae6f970cecf5"},
+    {file = "mysql_api-1.12.0.tar.gz", hash = "sha256:611b53ac122c41e75c8dd4560e4c906ea5be8aada335a7ba90993ac04d3c79c1"},
 ]
 
 [package.dependencies]
@@ -997,14 +997,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-server"
-version = "1.4.0"
+version = "1.6.0"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_server-1.4.0-py3-none-any.whl", hash = "sha256:624f8f98d0a01a657f9fc125baed248d2fa528d86580d50a8bc8b3899cb54bd7"},
-    {file = "passive_server-1.4.0.tar.gz", hash = "sha256:977c83134e35b318ab4256379383b9b58e831f8030d49629292fd42699f76f94"},
+    {file = "passive_server-1.6.0-py3-none-any.whl", hash = "sha256:6b9ff5e54c0b9b3299db20f676c96395112971f01affbbe301026da7ccb82b03"},
+    {file = "passive_server-1.6.0.tar.gz", hash = "sha256:ee1ae9655880205889c0a367931e8724e7185c0001f19e5dfec9be7a95cbd900"},
 ]
 
 [package.dependencies]
@@ -1017,7 +1017,7 @@ inovance-tag-cyg = ">=1.9.0"
 mitsubishi-plc = ">=1.6.0"
 modbus-api = ">=1.14.0"
 modbus-tk = ">=1.1.4,<2.0.0"
-mysql-api = ">=1.11.0"
+mysql-api = ">=1.12.0"
 openpyxl = ">=3.1.5,<4.0.0"
 pandas = ">=2.2.3,<3.0.0"
 pillow = ">=10.4.0,<11.0.0"
@@ -1860,4 +1860,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "ffb1c44ae847f60c0d7d1ae12ee436367ee3243f19b56492545b9c793a34a92a"
+content-hash = "be8d70ebc32863a882292f139a33fb0915c883e6ed9b790bd4a904c1963067ef"
