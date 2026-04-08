@@ -764,14 +764,14 @@ reference = "mirrors"
 
 [[package]]
 name = "mysql-api"
-version = "1.12.0"
+version = "1.13.0"
 description = "封装mysql操作"
 optional = false
 python-versions = ">=3.11,<4.0"
 groups = ["main"]
 files = [
-    {file = "mysql_api-1.12.0-py3-none-any.whl", hash = "sha256:29eed2bd031aa84f05579ff84dbe081d1bd78b821d0c7b3b2b43ae6f970cecf5"},
-    {file = "mysql_api-1.12.0.tar.gz", hash = "sha256:611b53ac122c41e75c8dd4560e4c906ea5be8aada335a7ba90993ac04d3c79c1"},
+    {file = "mysql_api-1.13.0-py3-none-any.whl", hash = "sha256:d58993ee1fd180c1ec6a880aa9da12e99399e1e18c0a3047055f81f9ece86dba"},
+    {file = "mysql_api-1.13.0.tar.gz", hash = "sha256:e947c028264898824ea79b782adb89880c3f4ca152f093d81f2bafeafaa94b16"},
 ]
 
 [package.dependencies]
@@ -997,14 +997,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-server"
-version = "1.6.0"
+version = "1.7.0"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_server-1.6.0-py3-none-any.whl", hash = "sha256:6b9ff5e54c0b9b3299db20f676c96395112971f01affbbe301026da7ccb82b03"},
-    {file = "passive_server-1.6.0.tar.gz", hash = "sha256:ee1ae9655880205889c0a367931e8724e7185c0001f19e5dfec9be7a95cbd900"},
+    {file = "passive_server-1.7.0-py3-none-any.whl", hash = "sha256:2d8840fe5f075a51112e7a096ed402c014857dfd890998eb220a693999f52e9c"},
+    {file = "passive_server-1.7.0.tar.gz", hash = "sha256:48e9994ebc1bfb18db8f1fb4062d63fd7569e5eec05d57a2bc8e89e26c4227fe"},
 ]
 
 [package.dependencies]
@@ -1017,7 +1017,7 @@ inovance-tag-cyg = ">=1.9.0"
 mitsubishi-plc = ">=1.6.0"
 modbus-api = ">=1.14.0"
 modbus-tk = ">=1.1.4,<2.0.0"
-mysql-api = ">=1.12.0"
+mysql-api = ">=1.13.0"
 openpyxl = ">=3.1.5,<4.0.0"
 pandas = ">=2.2.3,<3.0.0"
 pillow = ">=10.4.0,<11.0.0"
@@ -1860,4 +1860,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "be8d70ebc32863a882292f139a33fb0915c883e6ed9b790bd4a904c1963067ef"
+content-hash = "7db83ec4ae2f087709a69311ccf962f71c03267af8b187b3494e202cffd2052e"
