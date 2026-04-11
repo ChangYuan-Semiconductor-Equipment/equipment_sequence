@@ -1,11 +1,12 @@
 # pylint: skip-file
 from passive_server.passive_equipment import EquipmentPassive
-from passive_server import plc_address_operation
+from passive_server import plc_address_operation, display_log
 
 
 class Example(EquipmentPassive):
     def __init__(self, mysql_host: str, database_name: str):
         super().__init__(mysql_host, database_name)
+        display_log.send_post("update_page_data", {})
 
     def _on_rcmd_carrier_in_reply(self, is_allow_carrier_in: int):
         """工厂回复针载具是否可以生产.
