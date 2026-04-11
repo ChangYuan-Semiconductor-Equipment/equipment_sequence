@@ -997,14 +997,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-server"
-version = "1.7.0"
+version = "1.8.0"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_server-1.7.0-py3-none-any.whl", hash = "sha256:2d8840fe5f075a51112e7a096ed402c014857dfd890998eb220a693999f52e9c"},
-    {file = "passive_server-1.7.0.tar.gz", hash = "sha256:48e9994ebc1bfb18db8f1fb4062d63fd7569e5eec05d57a2bc8e89e26c4227fe"},
+    {file = "passive_server-1.8.0-py3-none-any.whl", hash = "sha256:0f6f8ba0c02e9c9752c3921a198f4c378e6615c07e39477f36c0a4c61f0a21bc"},
+    {file = "passive_server-1.8.0.tar.gz", hash = "sha256:ef2bf7a10f6da308530a013753b8ef462ed5100345c1ecfe880511d270b9438d"},
 ]
 
 [package.dependencies]
@@ -1025,7 +1025,7 @@ pyairtable = ">=2.3.3,<3.0.0"
 pymysql = ">=1.1.1,<2.0.0"
 python-snap7 = ">=2.0.2,<3.0.0"
 pythonnet = ">=3.0.3,<4.0.0"
-secsgem_cyg = ">=1.18.0"
+secsgem_cyg = ">=1.19.0"
 siemens-plc = ">=1.7.0"
 socket-cyg = ">=1.10.0"
 sqlalchemy = ">=2.0.36,<3.0.0"
@@ -1500,14 +1500,14 @@ reference = "mirrors"
 
 [[package]]
 name = "secsgem-cyg"
-version = "1.18.0"
+version = "1.19.0"
 description = "secsgem 封装"
 optional = false
 python-versions = ">=3.10,<3.13"
 groups = ["main"]
 files = [
-    {file = "secsgem_cyg-1.18.0-py3-none-any.whl", hash = "sha256:00d123606918cd673b6aedfaa4bc512d02af71a260130a7191e52db6393bb60d"},
-    {file = "secsgem_cyg-1.18.0.tar.gz", hash = "sha256:75e63ae9f38bff309470fc59423b03538f5cebcab97bce636e35016d0d0f2df3"},
+    {file = "secsgem_cyg-1.19.0-py3-none-any.whl", hash = "sha256:62d36bb17624a83f8fc2b9f30228f8eaa9dd27930f29cae7fbba2f59d7acf436"},
+    {file = "secsgem_cyg-1.19.0.tar.gz", hash = "sha256:e1212eeb3a5099b69399ac26d604eebfcf0b4b85bf25401d331d0040e19333eb"},
 ]
 
 [package.dependencies]
@@ -1860,4 +1860,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "7db83ec4ae2f087709a69311ccf962f71c03267af8b187b3494e202cffd2052e"
+content-hash = "945c629b9dbcaae71881745a55f6a594708a640b5fab7a5efd68cf7b0f86f401"
