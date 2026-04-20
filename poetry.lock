@@ -997,14 +997,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-server"
-version = "1.9.0"
+version = "1.10.0"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_server-1.9.0-py3-none-any.whl", hash = "sha256:977f232d10e3d095fd97bf07d383af676a02a58de09469c3cb1d443fc726d86f"},
-    {file = "passive_server-1.9.0.tar.gz", hash = "sha256:a5b1bababd301060bcf3cafbb3186b97baa1b82d09c7df3dcc2dc4a9b43d6340"},
+    {file = "passive_server-1.10.0-py3-none-any.whl", hash = "sha256:83163dd7e052d7dba25fce413b1ad96aaf65f2aae9fd3513566bb1d766fa7416"},
+    {file = "passive_server-1.10.0.tar.gz", hash = "sha256:4b70b0335f7fb36220b37eea1e2996e599cc3ca8e020f269b341190f3e24addf"},
 ]
 
 [package.dependencies]
@@ -1860,4 +1860,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "29767983932003b10454622425daa3fb759b9c40eab164cce11c8a5a1470c05d"
+content-hash = "21aa37d1c1e9184ec1a37b574eb983a8d0674a8a4db40eb81c65b18e83c0a516"
