@@ -997,14 +997,14 @@ reference = "mirrors"
 
 [[package]]
 name = "passive-server"
-version = "1.12.0"
+version = "1.14.0"
 description = "作为服务端的设备"
 optional = false
 python-versions = ">=3.11,<3.13"
 groups = ["main"]
 files = [
-    {file = "passive_server-1.12.0-py3-none-any.whl", hash = "sha256:4575badb33116f02814bbc0a8b820088e0de6ec56e8c0679b07f534b9400052c"},
-    {file = "passive_server-1.12.0.tar.gz", hash = "sha256:32556ccb678121c429f3bde9481917fc1270c16b1ca16d65d84a1bea7ab90037"},
+    {file = "passive_server-1.14.0-py3-none-any.whl", hash = "sha256:9ce2aca1e525ebfabec4ab5fe2ca9065af750a0bf3340e8a9e1c761c54df289a"},
+    {file = "passive_server-1.14.0.tar.gz", hash = "sha256:f8689d8ca4d18178a7931c426cdaa50199a965b4f7620ff0ba281b51dd1c34a0"},
 ]
 
 [package.dependencies]
@@ -1025,7 +1025,7 @@ pyairtable = ">=2.3.3,<3.0.0"
 pymysql = ">=1.1.1,<2.0.0"
 python-snap7 = ">=2.0.2,<3.0.0"
 pythonnet = ">=3.0.3,<4.0.0"
-secsgem_cyg = ">=1.19.0"
+secsgem_cyg = ">=1.20.0"
 siemens-plc = ">=1.7.0"
 socket-cyg = ">=1.10.0"
 sqlalchemy = ">=2.0.36,<3.0.0"
@@ -1500,14 +1500,14 @@ reference = "mirrors"
 
 [[package]]
 name = "secsgem-cyg"
-version = "1.19.0"
+version = "1.20.0"
 description = "secsgem 封装"
 optional = false
 python-versions = ">=3.10,<3.13"
 groups = ["main"]
 files = [
-    {file = "secsgem_cyg-1.19.0-py3-none-any.whl", hash = "sha256:62d36bb17624a83f8fc2b9f30228f8eaa9dd27930f29cae7fbba2f59d7acf436"},
-    {file = "secsgem_cyg-1.19.0.tar.gz", hash = "sha256:e1212eeb3a5099b69399ac26d604eebfcf0b4b85bf25401d331d0040e19333eb"},
+    {file = "secsgem_cyg-1.20.0-py3-none-any.whl", hash = "sha256:7b722aff073b2264eef0e7ea098712c2b2323cabe84db25c334388113c4b8fb2"},
+    {file = "secsgem_cyg-1.20.0.tar.gz", hash = "sha256:43d5fc6698ddbd1e94ce5f0fa5b4f73ec9bbe032edc57b161f3ce7b82724c5e5"},
 ]
 
 [package.dependencies]
@@ -1860,4 +1860,4 @@ reference = "mirrors"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11,<3.13"
-content-hash = "8edf0a8df2ba1e37e07667705013ad5bd24fcacfa0553209c2728578501e203b"
+content-hash = "5ac111aa4fa1f4443164e11458562ac9658f4301ca40ae50e626fb61b834aecb"
